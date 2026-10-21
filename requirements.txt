@@ -6,3 +6,4 @@ Werkzeug
 requests
 google-generativeai
 gunicorn
+groq
