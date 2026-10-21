@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Applications - Job_Bridge</title>
+
+
+<style>
+
+body{
+
+font-family:Poppins,sans-serif;
+background:#f4f8ff;
+padding:40px;
+
+}
+
+
+h1{
+
+text-align:center;
+color:#0d6efd;
+margin-bottom:40px;
+
+}
+
+
+
+.container{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+gap:25px;
+
+}
+
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,0.1);
+
+}
+
+
+
+.card h2{
+
+color:#0d6efd;
+
+}
+
+
+
+.card p{
+
+margin:10px 0;
+color:#555;
+
+}
+
+
+
+.status{
+
+padding:8px 18px;
+border-radius:20px;
+background:#ffc107;
+color:black;
+display:inline-block;
+margin-top:10px;
+
+}
+
+
+
+.no-data{
+
+background:white;
+padding:30px;
+text-align:center;
+border-radius:20px;
+
+}
+
+
+.dashboard-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:35px;
+
+    padding:14px 35px;
+
+    background:linear-gradient(135deg,#198754,#20c997);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    box-shadow:0 8px 20px rgba(25,135,84,0.3);
+
+    transition:0.3s;
+
+}
+
+
+.dashboard-btn:hover{
+
+    background:linear-gradient(135deg,#146c43,#198754);
+
+    transform:translateY(-5px);
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+<div style="width:90%;margin:20px auto;text-align:right;">
+
+    <select id="languageSelector">
+
+        <option value="en">🌐 English</option>
+        <option value="te">🌐 తెలుగు</option>
+        <option value="hi">🌐 हिन्दी</option>
+
+    </select>
+
+</div>
+
+<h1>
+
+📄 <span data-lang="my_applications">My Applications</span>
+
+</h1>
+
+<div class="container">
+
+{% if applications %}
+
+{% for app in applications %}
+
+<div class="card">
+
+<h2>
+
+{{app[0]}}
+
+</h2>
+
+<p>
+
+<b data-lang="category">Category</b> :
+
+{{app[1]}}
+
+</p>
+
+<p>
+
+<b data-lang="location">Location</b> :
+
+{{app[2]}}
+
+</p>
+
+<p>
+
+<b data-lang="salary">Salary</b> :
+
+{{app[3]}}
+
+</p>
+
+<p>
+
+<b data-lang="applied_date">Applied Date</b> :
+
+{{app[5]}}
+
+</p>
+
+<p>
+
+<b data-lang="status">Status</b> :
+
+<span class="status">
+
+{{app[4]}}
+
+</span>
+
+</p>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="no-data">
+
+<h2 data-lang="no_applications">
+
+No Applications Yet
+
+</h2>
+
+<p data-lang="no_applications_desc">
+
+Apply for jobs to see them here.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<a class="dashboard-btn" href="/jobseeker/dashboard">
+
+<span data-lang="back_dashboard">
+
+← Back to Dashboard
+
+</span>
+
+</a>
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+</body>
+
+</html>

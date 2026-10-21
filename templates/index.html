@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Job_Bridge</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- AOS -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+    <!-- Animate CSS -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+
+    <!-- Swiper -->
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+<body>
+
+    <!-- Background Video -->
+    <video autoplay muted loop playsinline id="bg-video">
+        <source src="{{ url_for('static', filename='videos/hero.mp4') }}" type="video/mp4">
+    </video>
+
+    <!-- Overlay -->
+    <div class="overlay"></div>
+
+    <!-- Navbar -->
+    <nav>
+
+        <div class="logo">
+            <i class="fa-solid fa-bridge"></i>
+            Job_Bridge
+        </div>
+
+        <ul>
+            <li><a href="/">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#categories">Categories</a></li>
+            <li><a href="#contact">Contact</a></li>
+            <li><a href="/login">Login</a></li>
+            <li><a href="/register" class="register-btn">Register</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- Hero -->
+<section class="hero">
+
+    <h1 class="animate__animated animate__fadeInDown">
+        Find Local Work with
+        <span>Job_Bridge</span>
+    </h1>
+
+    <p id="typing"></p>
+
+    <div class="buttons">
+        <a href="/login" class="btn">Find Local Jobs</a>
+        <a href="/register" class="btn2">Hire Local Workers</a>
+    </div>
+
+</section>
+
+    <!-- ========================= -->
+<!-- Platform Highlights Section -->
+<!-- ========================= -->
+
+<section class="stats" id="stats">
+
+    <h2 data-aos="fade-up">Why Job_Bridge?</h2>
+
+    <div class="stats-container">
+
+        <div class="stat-card" data-aos="zoom-in">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Local</h3>
+            <p>Find Employment Near You</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fa-solid fa-users"></i>
+            <h3>Inclusive</h3>
+            <p>Opportunities for Different Skill Levels</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fa-solid fa-handshake"></i>
+            <h3>Connected</h3>
+            <p>Connect Job Seekers with Employers</p>
+        </div>
+
+        <div class="stat-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fa-solid fa-robot"></i>
+            <h3>AI-Powered</h3>
+            <p>Smart Assistance for Job Search</p>
+        </div>
+
+    </div>
+
+</section>
+    <!-- ========================= -->
+<!-- Categories Section -->
+<!-- ========================= -->
+
+<section class="categories" id="categories">
+
+    <h2 data-aos="fade-up">Browse Job Categories</h2>
+
+    <p class="category-subtitle" data-aos="fade-up">
+        Explore opportunities across multiple industries.
+    </p>
+
+    <div class="category-grid">
+
+        
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-school"></i>
+            <h3>Teaching</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-hospital"></i>
+            <h3>Hospital</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-truck-fast"></i>
+            <h3>Delivery</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Electrician</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-faucet"></i>
+            <h3>Plumber</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-hammer"></i>
+            <h3>Carpenter</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-screwdriver-wrench"></i>
+            <h3>Mechanic</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-car"></i>
+            <h3>Driver</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-user-nurse"></i>
+            <h3>Nurse</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-hotel"></i>
+            <h3>Hotel</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-store"></i>
+            <h3>Retail</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-building-columns"></i>
+            <h3>Government</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-building"></i>
+            <h3>Private</h3>
+        </div>
+
+        
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-clock"></i>
+            <h3>Part-Time</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Full-Time</h3>
+        </div>
+
+        <div class="category-card" data-aos="zoom-in">
+            <i class="fa-solid fa-house-laptop"></i>
+            <h3>Work From Home</h3>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Why Choose Job_Bridge -->
+<!-- ========================= -->
+
+<section class="why-choose" id="about">
+
+    <h2 data-aos="fade-up">Why Choose Job_Bridge?</h2>
+
+    <p class="why-subtitle" data-aos="fade-up">
+        Making local employment easier by connecting people looking for work
+        with employers and businesses looking for skilled and reliable workers.
+    </p>
+
+    <div class="why-grid">
+
+        <div class="why-card" data-aos="fade-up">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Local Opportunities</h3>
+            <p data-lang="welcome_desc">
+                Find employment opportunities near you based on your skills,
+                location and interests.
+            </p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="100">
+            <i class="fa-solid fa-bolt"></i>
+            <h3>Easy Hiring</h3>
+            <p>
+                Employers can post job opportunities and connect with suitable
+                workers through a simple hiring process.
+            </p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="200">
+            <i class="fa-solid fa-users"></i>
+            <h3>Skilled Workers</h3>
+            <p>
+                Connect with people offering skills in areas such as plumbing,
+                electrical work, driving, farming, delivery and more.
+            </p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="300">
+            <i class="fa-solid fa-robot"></i>
+            <h3>AI Assistant</h3>
+            <p>
+                Get AI-powered assistance for finding jobs, understanding
+                opportunities and getting answers to common questions.
+            </p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="400">
+            <i class="fa-solid fa-file-arrow-up"></i>
+            <h3>Simple Applications</h3>
+            <p>
+                Upload your resume and apply for suitable job opportunities
+                through a simple application process.
+            </p>
+        </div>
+
+        <div class="why-card" data-aos="fade-up" data-aos-delay="500">
+            <i class="fa-solid fa-comments"></i>
+            <h3>Direct Communication</h3>
+            <p>
+                Job seekers and employers can communicate directly about
+                opportunities, applications and hiring.
+            </p>
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ========================= -->
+<!-- Job_Bridge Highlights -->
+<!-- ========================= -->
+
+<section class="achievements" id="achievements">
+
+    <h2 data-aos="fade-up">Job_Bridge Highlights</h2>
+
+    <p class="achievement-subtitle" data-aos="fade-up">
+        A platform designed to make local employment and hiring simpler,
+        accessible and connected.
+    </p>
+
+    <div class="achievement-grid">
+
+        <div class="achievement-card" data-aos="zoom-in">
+            <i class="fa-solid fa-location-dot"></i>
+            <h3>Local</h3>
+            <p>Find opportunities within your community</p>
+        </div>
+
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="100">
+            <i class="fa-solid fa-people-group"></i>
+            <h3>Inclusive</h3>
+            <p>Opportunities for different skills and occupations</p>
+        </div>
+
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="200">
+            <i class="fa-solid fa-handshake"></i>
+            <h3>Connected</h3>
+            <p>Bringing job seekers and employers together</p>
+        </div>
+
+        <div class="achievement-card" data-aos="zoom-in" data-aos-delay="300">
+            <i class="fa-solid fa-robot"></i>
+            <h3>AI-Powered</h3>
+            <p>Smart assistance for a better job search experience</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- User Experiences -->
+<!-- ========================= -->
+
+<!-- Plumber -->
+<div class="swiper-slide">
+
+    <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+
+        <h3>Ravi Kumar</h3>
+
+        <span>Plumber</span>
+
+        <div class="stars">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <p>
+            Find local plumbing opportunities and connect with people
+            looking for skilled plumbing services.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Electrician -->
+<div class="swiper-slide">
+
+    <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/men/76.jpg">
+
+        <h3>Arjun</h3>
+
+        <span>Electrician</span>
+
+        <div class="stars">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <p>
+            Job_Bridge can help skilled electricians discover suitable
+            local work opportunities.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Farmer -->
+<div class="swiper-slide">
+
+    <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/women/22.jpg">
+
+        <h3>Priya</h3>
+
+        <span>Farmer</span>
+
+        <div class="stars">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <p>
+            Local employment opportunities can help connect workers
+            and employers within the farming community.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Teacher -->
+<div class="swiper-slide">
+
+    <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/women/55.jpg">
+
+        <h3>Anjali</h3>
+
+        <span>Teacher</span>
+
+        <div class="stars">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <p>
+            Teachers can explore suitable local opportunities based
+            on their skills and preferred location.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Driver -->
+<div class="swiper-slide">
+
+    <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/men/18.jpg">
+
+        <h3>Vijay</h3>
+
+        <span>Driver</span>
+
+        <div class="stars">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <p>
+            Drivers can discover nearby employment opportunities
+            and connect with employers who need their services.
+        </p>
+
+    </div>
+
+</div>
+
+
+<!-- Employer -->
+<div class="swiper-slide">
+
+    <div class="testimonial-card">
+
+        <img src="https://randomuser.me/api/portraits/men/45.jpg">
+
+        <h3>Local Employer</h3>
+
+        <span>Employer</span>
+
+        <div class="stars">
+            ⭐⭐⭐⭐⭐
+        </div>
+
+        <p>
+            Employers can post local job opportunities and connect
+            with suitable workers through Job_Bridge.
+        </p>
+
+    </div>
+
+</div>
+<!-- IT Professional -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/32.jpg">
+        <h3>Rahul Kumar</h3>
+        <span>Software Developer</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            Job_Bridge helped me secure my first software developer position within two weeks.
+        </p>
+    </div>
+</div>
+
+<!-- Nurse -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/44.jpg">
+        <h3>Anitha Reddy</h3>
+        <span>Staff Nurse</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            I found a nursing job in a nearby hospital quickly. The application process was simple and smooth.
+        </p>
+    </div>
+</div>
+
+<!-- Carpenter -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/41.jpg">
+        <h3>Ramesh</h3>
+        <span>Carpenter</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            Local furniture companies contacted me directly after I created my profile on Job_Bridge.
+        </p>
+    </div>
+</div>
+
+<!-- Electrician -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/54.jpg">
+        <h3>Suresh Kumar</h3>
+        <span>Electrician</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            I started receiving electrical maintenance jobs from nearby businesses within a few days.
+        </p>
+    </div>
+</div>
+
+<!-- Plumber -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/63.jpg">
+        <h3>Mahesh</h3>
+        <span>Plumber</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            Finding plumbing work became much easier because employers could contact me directly.
+        </p>
+    </div>
+</div>
+
+<!-- Driver -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/67.jpg">
+        <h3>Venkatesh</h3>
+        <span>Driver</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            I got a full-time driver job through Job_Bridge without visiting multiple offices.
+        </p>
+    </div>
+</div>
+
+<!-- Teacher -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/31.jpg">
+        <h3>Lakshmi Devi</h3>
+        <span>School Teacher</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            The platform helped me discover teaching vacancies in nearby schools.
+        </p>
+    </div>
+</div>
+
+<!-- Delivery Executive -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/22.jpg">
+        <h3>Ajay</h3>
+        <span>Delivery Executive</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            I quickly found part-time delivery work that matched my preferred working hours.
+        </p>
+    </div>
+</div>
+
+<!-- Mechanic -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/71.jpg">
+        <h3>Kiran</h3>
+        <span>Automobile Mechanic</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            Several automobile workshops contacted me after seeing my skills and experience.
+        </p>
+    </div>
+</div>
+
+<!-- Hotel Staff -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/60.jpg">
+        <h3>Meena</h3>
+        <span>Hotel Receptionist</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            I found a receptionist job in a hotel near my hometown within a week.
+        </p>
+    </div>
+</div>
+
+<!-- Retail -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/women/28.jpg">
+        <h3>Priya</h3>
+        <span>Retail Associate</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            I received multiple interview calls from supermarkets and retail stores.
+        </p>
+    </div>
+</div>
+
+<!-- Employer -->
+<div class="swiper-slide">
+    <div class="testimonial-card">
+        <img src="https://randomuser.me/api/portraits/men/17.jpg">
+        <h3>Rajesh Verma</h3>
+        <span>Small Business Owner</span>
+        <div class="stars">⭐⭐⭐⭐⭐</div>
+        <p>
+            Job_Bridge helped us hire skilled local employees much faster than traditional methods.
+        </p>
+    </div>
+</div>
+
+<!-- ========================= -->
+<!-- FAQ Section -->
+<!-- ========================= -->
+
+<section class="faq" id="faq">
+
+    <h2 data-aos="fade-up">Frequently Asked Questions</h2>
+
+    <p class="faq-subtitle" data-aos="fade-up">
+        Find answers to common questions about Job_Bridge.
+    </p>
+
+    <div class="faq-container">
+
+        <!-- FAQ 1 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                What is Job_Bridge?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Job_Bridge is a local employment platform that connects
+                    people looking for work with employers and businesses
+                    looking for skilled and reliable workers in their community.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 2 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                What types of jobs are available?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Job_Bridge can support different types of local employment,
+                    including jobs for plumbers, electricians, drivers, farmers,
+                    teachers, nurses, mechanics, delivery workers, carpenters,
+                    retail workers, hospitality workers and other skilled workers.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 3 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                How can I find a local job?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Create a Job Seeker account, complete your profile, browse
+                    available opportunities and apply for jobs that match your
+                    skills and interests.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 4 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                Can employers post local jobs?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. Employers can create an account, provide the required
+                    details and post job opportunities to find suitable workers.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 5 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                Does Job_Bridge support nearby employment?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. Job_Bridge is designed to help people discover
+                    employment opportunities in and around their local community.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 6 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                Can I upload my resume?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. Job seekers can upload their resume to their profile
+                    and use it when applying for suitable job opportunities.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 7 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                Can job seekers communicate with employers?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Yes. Job_Bridge provides communication features that allow
+                    job seekers and employers to discuss job opportunities and
+                    application-related information.
+                </p>
+            </div>
+
+        </div>
+
+
+        <!-- FAQ 8 -->
+        <div class="faq-item" data-aos="fade-up">
+
+            <button class="faq-question">
+                Is Job_Bridge free for job seekers?
+                <i class="fa-solid fa-plus"></i>
+            </button>
+
+            <div class="faq-answer">
+                <p>
+                    Job seekers can register and use the platform to explore
+                    available employment opportunities and apply for suitable jobs.
+                </p>
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- Feedback Section -->
+<!-- ========================= -->
+
+<section class="feedback" id="feedback">
+
+    <h2 data-aos="fade-up">We Value Your Feedback</h2>
+
+    <p class="feedback-subtitle" data-aos="fade-up">
+        Share your suggestions and help us improve Job_Bridge.
+    </p>
+
+    <div class="feedback-container">
+
+        <div class="feedback-left" data-aos="fade-right">
+
+            <h3>Your Opinion Matters</h3>
+
+            <p>
+                Whether you're a job seeker or an employer, your feedback helps us
+                build a better hiring platform for everyone.
+            </p>
+
+            <div class="feedback-info">
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Easy to Use
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    AI-Powered Platform
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Fast Support
+                </div>
+
+                <div>
+                    <i class="fa-solid fa-circle-check"></i>
+                    Secure Communication
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="feedback-right" data-aos="fade-left">
+
+            <form action="/submit_feedback" method="POST">
+
+    <input
+        type="text"
+        name="name"
+        placeholder="Your Name"
+        required>
+
+    <input
+        type="email"
+        name="email"
+        placeholder="Email Address"
+        required>
+
+    <textarea
+        name="message"
+        rows="6"
+        placeholder="Write your feedback..."
+        required></textarea>
+
+    <button type="submit">
+
+        <i class="fa-solid fa-paper-plane"></i>
+
+        Send Feedback
+
+    </button>
+
+</form>
+
+        </div>
+
+    </div>
+
+</section>
+<!-- ========================= -->
+<!-- Contact Section -->
+<!-- ========================= -->
+
+<section class="contact" id="contact">
+
+    <h2 data-aos="fade-up">Contact Us</h2>
+
+    <p class="contact-subtitle" data-aos="fade-up">
+        We'd love to hear from you. Get in touch with the Job_Bridge team.
+    </p>
+
+    <div class="contact-container">
+
+        <!-- Contact Information -->
+
+        <div class="contact-info" data-aos="fade-right">
+
+            <div class="contact-card">
+                <i class="fa-solid fa-location-dot"></i>
+                <h3>Address</h3>
+                <p>Gudlavalleru, Krishna District,<br>Andhra Pradesh, India</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fa-solid fa-phone"></i>
+                <h3>Phone</h3>
+                <p>+91 98765 43210</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fa-solid fa-envelope"></i>
+                <h3>Email</h3>
+                <p>support@jobbridge.com</p>
+            </div>
+
+            <div class="contact-card">
+                <i class="fa-solid fa-clock"></i>
+                <h3>Working Hours</h3>
+                <p>Mon - Sat<br>9:00 AM - 6:00 PM</p>
+            </div>
+
+        </div>
+
+        <!-- Map -->
+
+        <div class="contact-map" data-aos="fade-left">
+
+    <iframe
+        src="https://www.openstreetmap.org/export/embed.html?bbox=80.9970%2C16.3430%2C81.0170%2C16.3630&layer=mapnik&marker=16.3530%2C81.0070"
+        width="100%"
+        height="450"
+        style="border:0;border-radius:20px;"
+        loading="lazy">
+    </iframe>
+
+</div>
+    </div>
+
+</section>
+
+<!-- ========================= -->
+<!-- Footer -->
+<!-- ========================= -->
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <!-- About -->
+
+        <div class="footer-box">
+
+            <h2>
+                <i class="fa-solid fa-bridge"></i>
+                Job_Bridge
+            </h2>
+
+            <p>
+    Job_Bridge is a local employment platform that connects
+    people looking for work with employers and businesses
+    looking for skilled and reliable workers in their community.
+</p>
+
+        </div>
+
+        <!-- Quick Links -->
+
+        <div class="footer-box">
+
+            <h3>Quick Links</h3>
+
+            <ul>
+
+                <li><a href="/">Home</a></li>
+
+                <li><a href="#about">About</a></li>
+
+                <li><a href="#categories">Categories</a></li>
+
+                <li><a href="#feedback">Feedback</a></li>
+
+                <li><a href="#contact">Contact</a></li>
+
+            </ul>
+
+        </div>
+
+        <!-- Job Categories -->
+
+        <div class="footer-box">
+
+            <h3>Popular Categories</h3>
+
+            <ul>
+
+                
+
+                <li>Teaching</li>
+
+                <li>Hospital</li>
+
+                <li>Electrician</li>
+
+                <li>Driver</li>
+
+                <li>Plumber</li>
+
+
+            </ul>
+
+        </div>
+
+        <!-- Contact -->
+
+        <div class="footer-box">
+
+            <h3>Contact</h3>
+
+            <p>
+                <i class="fa-solid fa-location-dot"></i>
+                Gudlavalleru, Andhra Pradesh
+            </p>
+
+            <p>
+                <i class="fa-solid fa-phone"></i>
+                +91 98765 43210
+            </p>
+
+            <p>
+                <i class="fa-solid fa-envelope"></i>
+                support@jobbridge.com
+            </p>
+
+            <div class="social-icons">
+
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+                <a href="#"><i class="fab fa-instagram"></i></a>
+
+                <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+                <a href="#"><i class="fab fa-x-twitter"></i></a>
+
+                <a href="#"><i class="fab fa-youtube"></i></a>
+
+            </div>
+
+        </div>
+
+    </div>
+
+    <hr>
+
+    <div class="copyright">
+
+        © 2026 Job_Bridge. All Rights Reserved.
+
+        <br><br>
+
+        Developed with ❤️ using Flask, MySQL & AI.
+
+    </div>
+
+</footer>
+
+
+   <!-- ========================= -->
+<!-- Floating AI Chatbot -->
+<!-- ========================= -->
+
+<div class="chatbot-toggle" id="chatToggle">
+    <i class="fa-solid fa-robot"></i>
+</div>
+
+<div class="chatbot-container" id="chatContainer">
+
+    <div class="chat-header">
+
+        <div>
+            <h3>🤖 Job_Bridge Assistant</h3>
+
+            <span class="online-status">
+                <i class="fa-solid fa-circle"></i>
+                Online
+            </span>
+        </div>
+
+        <button id="closeChat">
+            <i class="fa-solid fa-xmark"></i>
+        </button>
+
+    </div>
+
+    <div class="chat-body" id="chatBody">
+
+        <div class="bot-message">
+            👋 Hello! Welcome to <strong>Job_Bridge</strong>.
+            <br><br>
+            How can I help you today?
+        </div>
+
+        <div class="quick-buttons">
+
+            <button class="quick-btn">Find Jobs</button>
+
+            <button class="quick-btn">Apply Job</button>
+
+            <button class="quick-btn">Resume Review</button>
+
+            <button class="quick-btn">Employer Help</button>
+
+            <button class="quick-btn">FAQ</button>
+
+        </div>
+
+    </div>
+
+    <div class="chat-footer">
+
+        <input
+            type="text"
+            id="userMessage"
+            placeholder="Type your message...">
+
+        <button id="sendBtn">
+            <i class="fa-solid fa-paper-plane"></i>
+        </button>
+
+    </div>
+
+</div>
+
+<!-- Typed JS -->
+<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+
+<!-- AOS -->
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+<!-- Swiper -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+<!-- Your JavaScript -->
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

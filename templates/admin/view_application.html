@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>View Application - JobBridge Admin</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+
+body{
+
+background:#f4f6f9;
+
+}
+
+
+.main{
+
+width:80%;
+
+margin:40px auto;
+
+}
+
+
+h1{
+
+margin-bottom:25px;
+
+color:#1f2937;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:30px;
+
+border-radius:15px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+.card h2{
+
+color:#2563eb;
+
+margin-bottom:25px;
+
+}
+
+
+
+.info{
+
+font-size:16px;
+
+line-height:2;
+
+}
+
+
+
+.info b{
+
+display:inline-block;
+
+width:170px;
+
+color:#111827;
+
+}
+
+
+
+.status{
+
+padding:8px 15px;
+
+border-radius:20px;
+
+background:#fef3c7;
+
+font-weight:bold;
+
+}
+
+
+
+
+.btn{
+
+display:inline-block;
+
+margin-top:25px;
+
+padding:12px 25px;
+
+background:#2563eb;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:8px;
+
+}
+
+
+
+.btn:hover{
+
+background:#1d4ed8;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="main">
+
+
+<h1>
+Application Details
+</h1>
+
+
+
+<div class="card">
+
+
+<h2>
+{{ application[1] }}
+</h2>
+
+
+
+<div class="info">
+
+
+<p>
+<b>Applicant Name:</b>
+{{ application[2] }}
+</p>
+
+
+<p>
+<b>Email:</b>
+{{ application[3] }}
+</p>
+
+
+<p>
+<b>Phone:</b>
+{{ application[4] }}
+</p>
+
+
+<p>
+<b>Location:</b>
+{{ application[5] }}
+</p>
+
+
+<p>
+<b>Skills:</b>
+{{ application[6] }}
+</p>
+
+
+<p>
+<b>Status:</b>
+
+<span class="status">
+
+{{ application[7] }}
+
+</span>
+
+</p>
+
+
+<p>
+<b>Interview Date:</b>
+{{ application[8] }}
+</p>
+
+
+<p>
+<b>Interview Mode:</b>
+{{ application[9] }}
+</p>
+
+
+<p>
+<b>Interview Location:</b>
+{{ application[10] }}
+</p>
+
+
+<p>
+<b>Applied Date:</b>
+{{ application[11] }}
+</p>
+
+
+</div>
+
+
+
+<a href="/admin/applications" class="btn">
+
+← Back
+
+</a>
+
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

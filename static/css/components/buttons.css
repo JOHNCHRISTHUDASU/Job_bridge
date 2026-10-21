@@ -1,0 +1,33 @@
+.primary-btn{
+
+background:var(--primary);
+
+color:white;
+
+padding:14px 22px;
+
+border-radius:12px;
+
+font-weight:600;
+
+}
+
+.primary-btn:hover{
+
+background:var(--primary-dark);
+
+transform:translateY(-2px);
+
+}
+
+.secondary-btn{
+
+background:white;
+
+border:1px solid var(--border);
+
+padding:14px 22px;
+
+border-radius:12px;
+
+}

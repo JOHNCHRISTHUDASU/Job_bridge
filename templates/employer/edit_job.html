@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Job | Job_Bridge</title>
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#eef3fb;
+padding:40px;
+}
+
+.container{
+
+max-width:750px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+
+}
+
+h1{
+
+color:#0d6efd;
+text-align:center;
+margin-bottom:25px;
+
+}
+
+label{
+
+font-weight:600;
+display:block;
+margin-top:15px;
+
+}
+
+input,
+select,
+textarea{
+
+width:100%;
+padding:12px;
+margin-top:8px;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:15px;
+
+}
+
+textarea{
+
+resize:none;
+
+}
+
+button{
+
+width:100%;
+padding:15px;
+margin-top:25px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:10px;
+font-size:17px;
+cursor:pointer;
+
+}
+
+button:hover{
+
+background:#0b5ed7;
+
+}
+
+.back{
+
+display:inline-block;
+margin-top:20px;
+text-decoration:none;
+background:#6c757d;
+color:white;
+padding:12px 20px;
+border-radius:10px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>Edit Job</h1>
+
+<form method="POST">
+
+<!-- ================= JOB TITLE ================= -->
+
+<label>Job Title</label>
+
+<input
+type="text"
+name="title"
+value="{{job[2]}}"
+required>
+
+<!-- ================= CATEGORY ================= -->
+
+<label>Category</label>
+
+<input
+type="text"
+name="category"
+value="{{job[3]}}"
+required>
+
+<!-- ================= LOCATION ================= -->
+
+<label>Location</label>
+
+<input
+type="text"
+name="location"
+value="{{job[4]}}"
+required>
+
+<!-- ================= SALARY ================= -->
+
+<label>Salary</label>
+
+<input
+type="text"
+name="salary"
+value="{{job[5]}}">
+
+<!-- ================= EXPERIENCE ================= -->
+
+<label>Experience</label>
+
+<input
+type="text"
+name="experience"
+value="{{job[6]}}">
+
+<!-- ================= JOB TYPE ================= -->
+
+<label>Job Type</label>
+
+<select name="job_type">
+
+<option value="Full Time"
+{% if job[7]=="Full Time" %}selected{% endif %}>
+Full Time
+</option>
+
+<option value="Part Time"
+{% if job[7]=="Part Time" %}selected{% endif %}>
+Part Time
+</option>
+
+<option value="Internship"
+{% if job[7]=="Internship" %}selected{% endif %}>
+Internship
+</option>
+
+</select>
+
+<!-- ================= VACANCIES ================= -->
+
+<label>Vacancies</label>
+
+<input
+type="number"
+name="vacancies"
+value="{{job[8]}}">
+
+<!-- ================= SKILLS ================= -->
+
+<label>Required Skills</label>
+
+<input
+type="text"
+name="skills"
+value="{{job[9]}}">
+
+<!-- ================= DESCRIPTION ================= -->
+
+<label>Job Description</label>
+
+<textarea
+name="description"
+rows="5">{{job[10]}}</textarea>
+
+<!-- ================= DEADLINE ================= -->
+
+<label>Application Deadline</label>
+
+<input
+type="date"
+name="deadline"
+value="{{job[11]}}">
+
+<!-- ================= STATUS ================= -->
+
+<label>Status</label>
+
+<select name="status">
+
+<option value="Open"
+{% if job[12]=="Open" %}selected{% endif %}>
+Open
+</option>
+
+<option value="Closed"
+{% if job[12]=="Closed" %}selected{% endif %}>
+Closed
+</option>
+
+</select>
+
+<!-- ================= BUTTON ================= -->
+
+<button type="submit">
+Update Job
+</button>
+
+</form>
+
+<br>
+
+<a class="back"
+href="/my_jobs">
+
+← Back to My Jobs
+
+</a>
+
+</div>
+
+</body>
+
+</html>

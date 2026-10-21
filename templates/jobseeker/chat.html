@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Job Seeker Chat</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:'Poppins',sans-serif;
+        }
+
+        body{
+            background:#f4f7fb;
+        }
+
+        .chat-container{
+            width:70%;
+            max-width:900px;
+            margin:40px auto;
+            background:#fff;
+            border-radius:15px;
+            box-shadow:0 5px 20px rgba(0,0,0,.15);
+            overflow:hidden;
+        }
+
+        .chat-header{
+            background:#0d6efd;
+            color:white;
+            padding:20px;
+        }
+
+        .chat-header h2{
+            font-size:24px;
+        }
+
+        .chat-header p{
+            margin-top:5px;
+        }
+
+        .chat-body{
+            height:420px;
+            overflow-y:auto;
+            padding:20px;
+            background:#eef3f8;
+        }
+
+        .message{
+            max-width:70%;
+            padding:12px;
+            border-radius:12px;
+            margin-bottom:15px;
+        }
+
+        .sent{
+            background:#0d6efd;
+            color:white;
+            margin-left:auto;
+        }
+
+        .received{
+            background:white;
+            border:1px solid #ddd;
+        }
+
+        .chat-footer{
+            display:flex;
+            gap:10px;
+            padding:20px;
+            border-top:1px solid #ddd;
+        }
+
+        textarea{
+            flex:1;
+            height:60px;
+            resize:none;
+            padding:10px;
+            border-radius:10px;
+            border:1px solid #ccc;
+        }
+
+        button{
+            background:#0d6efd;
+            color:white;
+            border:none;
+            padding:12px 25px;
+            border-radius:10px;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#084298;
+        }
+
+        small{
+            font-size:11px;
+            opacity:0.8;
+        }
+    </style>
+</head>
+<body>
+
+<div class="chat-container">
+
+    <!-- Language Selector -->
+    <div style="padding:15px;text-align:right;background:#f8f9fa;">
+
+        <select id="languageSelector">
+
+            <option value="en">🌐 English</option>
+            <option value="te">🌐 తెలుగు</option>
+            <option value="hi">🌐 हिन्दी</option>
+
+        </select>
+
+    </div>
+
+    <!-- Chat Header -->
+    <div class="chat-header">
+
+        <h2>
+            💬 <span data-lang="chat_title">JobBridge Chat</span>
+        </h2>
+
+        <p>
+            <span data-lang="conversation_with">Conversation with</span>
+            {{ receiver_name }}
+        </p>
+
+    </div>
+
+    <!-- Chat Body -->
+    <div class="chat-body">
+
+        {% if chats %}
+
+            {% for chat in chats %}
+
+                {% if chat[0] == session["user_id"] %}
+
+                    <div class="message sent">
+
+                        {{ chat[2] }}
+
+                        <br>
+
+                        <small>{{ chat[3] }}</small>
+
+                    </div>
+
+                {% else %}
+
+                    <div class="message received">
+
+                        {{ chat[2] }}
+
+                        <br>
+
+                        <small>{{ chat[3] }}</small>
+
+                    </div>
+
+                {% endif %}
+
+            {% endfor %}
+
+        {% else %}
+
+            <p style="text-align:center;color:gray;">
+
+                <span data-lang="no_messages">
+                    No messages yet.
+                </span>
+
+            </p>
+
+        {% endif %}
+
+    </div>
+
+    <!-- Send Message -->
+    <form action="/send_message" method="POST">
+
+        <input
+            type="hidden"
+            name="receiver_id"
+            value="{{ receiver_id }}">
+
+        <div class="chat-footer">
+
+            <textarea
+                name="message"
+                data-placeholder="type_message"
+                placeholder="Type your message..."
+                required></textarea>
+
+            <button type="submit">
+
+                <span data-lang="send">
+                    Send
+                </span>
+
+            </button>
+
+        </div>
+
+    </form>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Interviews</title>
+
+<style>
+
+body{
+    font-family:Arial;
+    background:#f5f5f5;
+}
+
+.container{
+    width:90%;
+    margin:30px auto;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    margin-bottom:20px;
+    border-radius:10px;
+    box-shadow:0 0 10px #ddd;
+}
+
+.status{
+    color:green;
+    font-weight:bold;
+}
+
+.btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:10px 20px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:5px;
+}
+
+</style>
+
+</head>
+<body>
+
+<div style="width:90%;margin:20px auto;text-align:right;">
+
+    <select id="languageSelector">
+
+        <option value="en">🌐 English</option>
+        <option value="te">🌐 తెలుగు</option>
+        <option value="hi">🌐 हिन्दी</option>
+
+    </select>
+
+</div>
+
+
+<div class="container">
+
+
+<h1>
+📅 <span data-lang="my_interviews">My Interviews</span>
+</h1>
+
+
+{% if interviews %}
+
+
+{% for interview in interviews %}
+
+
+<div class="card">
+
+
+<h2>
+{{ interview[0] }}
+</h2>
+
+
+<p>
+<b data-lang="date">Date</b> :
+{{ interview[1] }}
+</p>
+
+
+<p>
+<b data-lang="mode">Mode</b> :
+{{ interview[2] }}
+</p>
+
+
+<p>
+<b data-lang="meeting_link">
+Meeting Link / Address
+</b>
+</p>
+
+
+<p>
+{{ interview[3] }}
+</p>
+
+
+<p class="status">
+{{ interview[4] }}
+</p>
+
+
+</div>
+
+
+{% endfor %}
+
+
+{% else %}
+
+
+<h2 data-lang="no_interviews">
+No Interviews Scheduled
+</h2>
+
+
+{% endif %}
+
+
+
+<a class="btn" href="/jobseeker/dashboard">
+
+<span data-lang="back_dashboard">
+← Back to Dashboard
+</span>
+
+</a>
+
+
+</div>
+
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+
+</body>
+</html>

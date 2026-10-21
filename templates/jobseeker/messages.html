@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Messages - JobBridge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#ECE5DD;
+}
+
+.container{
+    max-width:900px;
+    margin:40px auto;
+    background:#fff;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.08);
+}
+
+h1{
+    color:#0d6efd;
+    margin-bottom:10px;
+}
+
+.subtitle{
+    color:#666;
+    margin-bottom:25px;
+}
+
+.message-card{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:18px;
+    margin-bottom:15px;
+    border-radius:15px;
+    background:white;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+    transition:.25s;
+    text-decoration:none;
+    color:black;
+}
+
+.message-card:hover{
+    transform:translateY(-3px);
+    background:#f8fbff;
+}
+
+.left{
+    flex:1;
+}
+
+.name{
+    font-size:20px;
+    font-weight:600;
+    color:#0d6efd;
+}
+
+.text{
+    margin-top:8px;
+    color:#555;
+    white-space:nowrap;
+    overflow:hidden;
+    text-overflow:ellipsis;
+}
+
+.time{
+    margin-top:8px;
+    color:gray;
+    font-size:13px;
+}
+
+.arrow{
+    font-size:26px;
+    color:#0d6efd;
+}
+
+.empty{
+    text-align:center;
+    padding:60px;
+    color:gray;
+}
+
+.back{
+    display:inline-block;
+    margin-top:25px;
+    text-decoration:none;
+    background:#0d6efd;
+    color:white;
+    padding:12px 25px;
+    border-radius:10px;
+}
+
+.back:hover{
+    background:#084298;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- Language Selector -->
+
+    <div style="text-align:right;margin-bottom:20px;">
+
+        <select id="languageSelector">
+
+            <option value="en">🌐 English</option>
+            <option value="te">🌐 తెలుగు</option>
+            <option value="hi">🌐 हिन्दी</option>
+
+        </select>
+
+    </div>
+
+    <h1>
+
+        💬 <span data-lang="messages_page">Messages</span>
+
+    </h1>
+
+    <p class="subtitle" data-lang="messages_page_desc">
+
+        Communicate with employers regarding your job applications.
+
+    </p>
+
+    {% if conversations %}
+
+        {% for conversation in conversations %}
+
+        <a class="message-card"
+           href="{{ url_for('jobseeker_chat', employer_id=conversation[0]) }}">
+
+            <div class="left">
+
+                <div class="name">
+
+                    🏢 {{ conversation[1] }}
+
+                </div>
+
+                <div class="text">
+
+                    {{ conversation[2] }}
+
+                </div>
+
+                <div class="time">
+
+                    🕒 {{ conversation[3] }}
+
+                </div>
+
+            </div>
+
+            <div class="arrow">
+
+                <span data-lang="open_chat">Open Chat →</span>
+
+            </div>
+
+        </a>
+
+        {% endfor %}
+
+    {% else %}
+
+    <div class="empty">
+
+        <h2 data-lang="no_messages_yet">
+
+            No Messages Yet
+
+        </h2>
+
+        <p data-lang="no_messages_desc">
+
+            You haven't received any messages from employers.
+
+        </p>
+
+    </div>
+
+    {% endif %}
+
+    <a href="/jobseeker/dashboard" class="back">
+
+        <span data-lang="back_dashboard">
+
+            ← Back to Dashboard
+
+        </span>
+
+    </a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+</body>
+</html>

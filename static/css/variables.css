@@ -1,0 +1,50 @@
+:root{
+
+    /* Primary */
+
+    --primary:#2563EB;
+    --primary-dark:#1D4ED8;
+    --primary-light:#DBEAFE;
+
+    /* Success */
+
+    --success:#22C55E;
+
+    /* Danger */
+
+    --danger:#EF4444;
+
+    /* Warning */
+
+    --warning:#F59E0B;
+
+    /* Background */
+
+    --bg:#F8FAFC;
+
+    /* Cards */
+
+    --card:#FFFFFF;
+
+    /* Text */
+
+    --text:#1E293B;
+    --text-light:#64748B;
+
+    /* Borders */
+
+    --border:#E2E8F0;
+
+    /* Radius */
+
+    --radius:16px;
+
+    /* Shadow */
+
+    --shadow:0 10px 30px rgba(0,0,0,.08);
+
+    /* Transition */
+
+    --transition:.3s ease;
+
+}

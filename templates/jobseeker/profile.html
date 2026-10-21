@@ -1,0 +1,796 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>My Profile - Job_Bridge</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+background:#f4f8ff;
+padding:40px;
+
+}
+
+
+
+.profile-container{
+
+max-width:850px;
+margin:auto;
+background:white;
+padding:35px;
+border-radius:25px;
+box-shadow:0 10px 30px rgba(0,0,0,0.1);
+
+}
+
+
+
+/* Profile Header */
+
+.profile-header{
+
+text-align:center;
+
+}
+
+
+
+.profile-header img{
+
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #0d6efd;
+
+}
+
+
+
+.profile-header h1{
+
+color:#0d6efd;
+margin-top:15px;
+
+}
+
+
+
+.profile-header p{
+
+color:#777;
+margin-top:5px;
+
+}
+
+
+
+/* Image Upload */
+
+
+.image-upload{
+
+margin-top:15px;
+
+}
+
+
+.image-upload input{
+
+padding:8px;
+
+}
+
+
+
+.small-delete{
+
+display:inline-block;
+
+margin-top:10px;
+
+padding:7px 14px;
+
+background:#ff4757;
+
+color:white;
+
+font-size:13px;
+
+border-radius:20px;
+
+text-decoration:none;
+
+}
+
+
+
+
+
+/* Sections */
+
+
+.section{
+
+margin-top:35px;
+
+}
+
+
+
+.section h2{
+
+color:#0d6efd;
+margin-bottom:15px;
+
+}
+
+
+
+
+
+.info{
+
+display:grid;
+
+grid-template-columns:repeat(2,1fr);
+
+gap:15px;
+
+}
+
+
+
+.info-box{
+
+background:#f8f9fa;
+
+padding:18px;
+
+border-radius:15px;
+
+}
+
+
+
+.info-box span{
+
+color:#777;
+
+}
+
+
+
+
+
+/* Skills */
+
+
+.skills{
+
+display:flex;
+
+flex-wrap:wrap;
+
+gap:10px;
+
+}
+
+
+
+.skill{
+
+background:#0d6efd;
+
+color:white;
+
+padding:8px 18px;
+
+border-radius:20px;
+
+}
+
+
+
+
+
+/* Resume */
+
+
+.resume-card{
+
+background:#f8f9fa;
+
+padding:25px;
+
+border-radius:20px;
+
+border-left:5px solid #0d6efd;
+
+}
+
+
+
+.resume-name{
+
+font-weight:600;
+
+margin-bottom:15px;
+
+}
+
+
+
+.resume-btn{
+
+display:inline-block;
+
+padding:10px 18px;
+
+border-radius:20px;
+
+text-decoration:none;
+
+color:white;
+
+margin-right:10px;
+
+font-size:14px;
+
+}
+
+
+
+.view{
+
+background:#0d6efd;
+
+}
+
+
+
+.download{
+
+background:#198754;
+
+}
+
+
+
+.delete{
+
+background:#ff4757;
+
+}
+
+
+
+
+
+/* Upload */
+
+
+.upload-card{
+
+background:#eef5ff;
+
+padding:25px;
+
+border-radius:20px;
+
+margin-top:25px;
+
+}
+
+
+
+.upload-card input{
+
+margin-top:10px;
+
+}
+
+
+
+.save-btn{
+
+margin-top:20px;
+
+width:100%;
+
+padding:14px;
+
+border:none;
+
+background:#0d6efd;
+
+color:white;
+
+border-radius:15px;
+
+font-size:16px;
+
+cursor:pointer;
+
+}
+
+
+
+
+
+.dashboard-btn{
+
+display:block;
+
+text-align:center;
+
+margin-top:30px;
+
+padding:14px;
+
+background:#343a40;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:15px;
+
+}
+
+
+
+</style>
+
+</head>
+
+
+
+<body>
+
+
+<div style="width:90%;margin:20px auto;text-align:right;">
+
+<select id="languageSelector">
+
+<option value="en">🌐 English</option>
+<option value="te">🌐 తెలుగు</option>
+<option value="hi">🌐 हिन्दी</option>
+
+</select>
+
+</div>
+
+
+
+<div class="profile-container">
+
+
+<!-- Profile Image -->
+
+<div class="profile-header">
+
+
+{% if user[11] %}
+
+<img src="/static/images/{{user[11]}}">
+
+<br>
+
+<a class="small-delete" href="/delete_profile_image"
+data-lang="remove_photo">
+Remove Photo
+</a>
+
+
+{% else %}
+
+<img src="/static/images/default.png">
+
+{% endif %}
+
+
+
+<h1>{{user[1]}}</h1>
+
+
+<p>
+
+{% if user[7] %}
+
+{{user[7]}}
+
+{% else %}
+
+<span data-lang="add_location">
+Add your location
+</span>
+
+{% endif %}
+
+</p>
+
+
+<p>{{user[3]}}</p>
+
+
+</div>
+
+
+
+<!-- Upload -->
+
+
+<div class="upload-card">
+
+
+<h2 data-lang="update_profile">
+Update Profile
+</h2>
+
+
+<form action="/update_profile" method="POST" enctype="multipart/form-data">
+
+
+<label data-lang="profile_picture">
+Profile Picture
+</label>
+
+<br>
+
+<input type="file" name="profile_image">
+
+
+<br><br>
+
+
+<label data-lang="resume">
+Resume
+</label>
+
+<br>
+
+<input type="file" name="resume">
+
+
+<br>
+
+
+<button class="save-btn" data-lang="save_changes">
+Save Changes
+</button>
+
+
+</form>
+
+
+</div>
+
+
+
+
+<!-- Personal Details -->
+
+
+<div class="section">
+
+
+<h2 data-lang="personal_details">
+Personal Details
+</h2>
+
+
+<div class="info">
+
+
+<div class="info-box">
+
+<b data-lang="phone">Phone</b>
+
+<br>
+
+<span>
+
+{% if user[4] %}
+{{user[4]}}
+{% else %}
+<span data-lang="add_phone">Add Phone</span>
+{% endif %}
+
+</span>
+
+</div>
+
+
+
+
+<div class="info-box">
+
+<b data-lang="qualification">
+Qualification
+</b>
+
+<br>
+
+
+<span>
+
+{% if user[8] %}
+{{user[8]}}
+{% else %}
+<span data-lang="add_qualification">Add Qualification</span>
+{% endif %}
+
+</span>
+
+
+</div>
+
+
+
+
+<div class="info-box">
+
+
+<b data-lang="experience">
+Experience
+</b>
+
+
+<br>
+
+
+<span>
+
+{% if user[10] %}
+{{user[10]}}
+
+{% else %}
+
+<span data-lang="fresher">Fresher</span>
+
+{% endif %}
+
+
+</span>
+
+
+</div>
+
+
+
+<div class="info-box">
+
+
+<b data-lang="location">
+Location
+</b>
+
+
+<br>
+
+
+<span>
+
+{% if user[7] %}
+{{user[7]}}
+
+{% else %}
+
+<span data-lang="add_location">
+Add Location
+</span>
+
+{% endif %}
+
+</span>
+
+
+</div>
+
+
+</div>
+
+</div>
+
+
+
+
+
+<!-- Skills -->
+
+
+<div class="section">
+
+
+<h2 data-lang="skills">
+Skills
+</h2>
+
+
+
+<div class="skills">
+
+
+{% if user[9] %}
+
+
+{% for skill in user[9].split(',') %}
+
+
+<div class="skill">
+{{skill}}
+</div>
+
+
+{% endfor %}
+
+
+{% else %}
+
+
+<p data-lang="add_skills">
+Add your skills from Edit Profile
+</p>
+
+
+{% endif %}
+
+
+</div>
+
+
+</div>
+
+
+
+
+
+<!-- Resume -->
+
+
+<div class="section">
+
+
+<h2 data-lang="resume">
+Resume
+</h2>
+
+
+
+<div class="resume-card">
+
+
+{% if user[12] %}
+
+
+<div class="resume-name">
+
+📄 {{user[12]}}
+
+</div>
+
+
+
+<a class="resume-btn view"
+href="/static/resumes/{{user[12]}}"
+target="_blank"
+data-lang="view">
+
+View
+
+</a>
+
+
+
+<a class="resume-btn download"
+href="/static/resumes/{{user[12]}}"
+download
+data-lang="download">
+
+Download
+
+</a>
+
+
+
+<a class="resume-btn delete"
+href="/delete_resume"
+data-lang="delete">
+
+Delete
+
+</a>
+
+
+
+{% else %}
+
+
+<p data-lang="no_resume">
+No resume uploaded yet.
+</p>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+</div>
+
+
+
+
+<a class="dashboard-btn"
+href="/edit_profile">
+
+✏️ <span data-lang="edit_profile">
+Edit Profile
+</span>
+
+</a>
+
+
+
+<a class="dashboard-btn"
+href="/jobseeker/dashboard">
+
+← <span data-lang="back_dashboard">
+Back to Dashboard
+</span>
+
+</a>
+
+
+
+
+
+<!-- About -->
+
+
+<div class="section">
+
+
+<h2 data-lang="about">
+About
+</h2>
+
+
+
+<p>
+
+{{user[14] if user[14] else "Add your description from Edit Profile"}}
+
+
+</p>
+
+
+</div>
+
+
+
+</div>
+
+
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+
+</body>
+</html>

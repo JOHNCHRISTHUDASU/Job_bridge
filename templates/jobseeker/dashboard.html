@@ -1,0 +1,1455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Job Seeker Dashboard - Job_Bridge</title>
+
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+
+<!-- Font Awesome -->
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+    background:#f4f8ff;
+
+}
+
+
+
+/* =====================================================
+   NAVBAR
+===================================================== */
+
+.navbar{
+
+    position:sticky;
+
+    top:0;
+
+    z-index:1000;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:15px 35px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    box-shadow:0 4px 15px rgba(0,0,0,.15);
+
+}
+
+
+/* Logo */
+
+.logo{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:10px;
+
+    font-size:28px;
+
+    font-weight:700;
+
+}
+
+
+.logo i{
+
+    font-size:30px;
+
+}
+
+
+/* Right Side */
+
+.nav-right{
+
+    display:flex;
+
+    align-items:center;
+
+    gap:12px;
+
+}
+
+
+/* Navigation Links */
+
+.nav-right a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-size:15px;
+
+    font-weight:600;
+
+    padding:10px 16px;
+
+    border-radius:10px;
+
+    transition:.3s;
+
+}
+
+
+.nav-right a:hover{
+
+    background:rgba(255,255,255,.18);
+
+}
+
+
+/* Language */
+
+#languageSelector{
+
+    padding:10px 12px;
+
+    border:none;
+
+    border-radius:10px;
+
+    outline:none;
+
+    font-size:14px;
+
+    cursor:pointer;
+
+}
+
+
+/* Speaker */
+
+#speakBtn{
+
+    border:none;
+
+    background:#16a34a;
+
+    color:white;
+
+    padding:10px 18px;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-weight:600;
+
+    transition:.3s;
+
+}
+
+
+#speakBtn:hover{
+
+    background:#15803d;
+
+}
+
+
+/* Welcome */
+
+.welcome{
+
+    background:white;
+
+    margin:25px 0;
+
+    padding:25px;
+
+    border-radius:18px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,.08);
+
+}
+
+
+.welcome h1{
+
+    font-size:32px;
+
+    color:#1e293b;
+
+    margin-bottom:10px;
+
+}
+
+
+.welcome p{
+
+    color:#64748b;
+
+    font-size:17px;
+
+    line-height:1.7;
+
+}
+
+
+/* Mobile */
+
+@media(max-width:900px){
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:15px;
+
+    padding:20px;
+
+}
+
+.nav-right{
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+
+}
+
+}
+
+
+
+/* ========================= */
+/* Dashboard Container */
+/* ========================= */
+
+
+.container{
+
+    padding:40px 8%;
+
+}
+
+
+
+
+/* ========================= */
+/* Welcome Section */
+/* ========================= */
+
+
+.welcome{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+    margin-bottom:35px;
+
+}
+
+
+.welcome h1{
+
+    color:#0d6efd;
+
+    margin-bottom:10px;
+
+}
+
+
+.welcome p{
+
+    color:#666;
+
+    font-size:16px;
+
+}
+
+
+
+
+
+/* ========================= */
+/* Dashboard Cards */
+/* ========================= */
+
+
+.dashboard-cards{
+
+    display:grid;
+
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+
+    gap:25px;
+
+}
+
+
+
+
+.card{
+
+    background:white;
+
+    padding:30px;
+
+    border-radius:18px;
+
+    text-align:center;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+    transition:.3s;
+
+}
+
+
+
+.card:hover{
+
+    transform:translateY(-8px);
+
+    box-shadow:0 15px 35px rgba(0,0,0,0.15);
+
+}
+
+
+
+
+.card i{
+
+    font-size:40px;
+
+    color:#0d6efd;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.card h3{
+
+    color:#333;
+
+    margin-bottom:10px;
+
+}
+
+
+
+.card p{
+
+    color:#777;
+
+    line-height:1.6;
+
+}
+
+
+
+
+
+/* ========================= */
+/* Card Buttons */
+/* ========================= */
+
+
+.card-btn{
+
+    display:inline-block;
+
+    margin-top:18px;
+
+    padding:10px 22px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:10px;
+
+    font-size:14px;
+
+    transition:.3s;
+
+}
+
+
+
+.card-btn:hover{
+
+    background:#084298;
+
+    transform:translateY(-3px);
+
+}
+
+
+
+
+
+/* ========================= */
+/* Search Section */
+/* ========================= */
+
+
+.search-box{
+
+    margin-top:40px;
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:20px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.08);
+
+}
+
+
+
+
+.search-box h2{
+
+    color:#0d6efd;
+
+    margin-bottom:20px;
+
+}
+
+
+
+
+.search-box input{
+
+    width:80%;
+
+    padding:15px;
+
+    border:1px solid #ddd;
+
+    border-radius:10px;
+
+    font-size:16px;
+
+    outline:none;
+
+}
+
+
+
+
+.search-box input:focus{
+
+    border-color:#0d6efd;
+
+}
+
+
+
+
+
+.search-box button{
+
+    padding:15px 25px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    border:none;
+
+    border-radius:10px;
+
+    cursor:pointer;
+
+    font-size:16px;
+
+    transition:.3s;
+
+}
+
+
+
+
+.search-box button:hover{
+
+    background:#084298;
+
+}
+
+
+
+
+/* ========================= */
+/* Flash Messages */
+/* ========================= */
+
+
+.alert{
+
+    padding:15px;
+
+    margin-bottom:20px;
+
+    border-radius:10px;
+
+}
+
+
+
+.alert-success{
+
+    background:#d1e7dd;
+
+    color:#0f5132;
+
+}
+
+
+
+.alert-danger{
+
+    background:#f8d7da;
+
+    color:#842029;
+
+}
+
+
+
+
+
+/* ========================= */
+/* Responsive */
+/* ========================= */
+
+
+@media(max-width:700px){
+
+
+.navbar{
+
+    flex-direction:column;
+
+    gap:15px;
+
+}
+
+
+
+.navbar a{
+
+    margin-left:10px;
+
+}
+
+
+
+.search-box input{
+
+    width:100%;
+
+    margin-bottom:15px;
+
+}
+
+
+
+.search-box button{
+
+    width:100%;
+
+}
+
+
+
+.dashboard-cards{
+
+    grid-template-columns:1fr;
+
+}
+
+
+}
+
+.card button{
+
+    margin-top:20px;
+    padding:12px 25px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+
+}
+
+
+.card button:hover{
+
+    background:#084298;
+    transform:translateY(-3px);
+
+}
+
+.card button{
+
+    margin-top:20px;
+    padding:12px 25px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:10px;
+    font-size:15px;
+    cursor:pointer;
+    transition:0.3s;
+
+}
+
+
+.card button:hover{
+
+    background:#084298;
+    transform:translateY(-3px);
+
+}
+
+.dashboard-card{
+    width:320px;
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 10px 25px rgba(0,0,0,0.12);
+    margin:20px;
+    transition:0.3s;
+}
+
+.dashboard-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 30px rgba(0,0,0,0.18);
+}
+
+.dashboard-card i{
+    font-size:60px;
+    color:#2563eb;
+    margin-bottom:15px;
+}
+
+.dashboard-card h3{
+    font-size:24px;
+    font-weight:600;
+    color:#222;
+    margin:15px 0 10px;
+}
+
+.dashboard-card p{
+    font-size:18px;
+    color:#666;
+    line-height:1.5;
+    margin-bottom:25px;
+}
+
+.dashboard-card .btn{
+    display:inline-block;
+    padding:12px 30px;
+    background:#2563eb;
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:18px;
+    font-weight:600;
+    transition:0.3s;
+}
+
+.dashboard-card .btn:hover{
+    background:#174ecb;
+}
+
+/*==========================
+SEARCH BOX
+==========================*/
+
+.search-box{
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+margin:30px 0;
+
+box-shadow:0 5px 18px rgba(0,0,0,.08);
+
+}
+
+
+.search-box h2{
+
+color:#1e293b;
+
+margin-bottom:10px;
+
+}
+
+
+.search-text{
+
+color:#64748b;
+
+margin-bottom:20px;
+
+}
+
+
+.search-input{
+
+display:flex;
+
+gap:12px;
+
+}
+
+
+.search-input input{
+
+flex:1;
+
+padding:15px;
+
+font-size:17px;
+
+border:2px solid #dbeafe;
+
+border-radius:12px;
+
+outline:none;
+
+}
+
+
+.search-input input:focus{
+
+border-color:#2563eb;
+
+}
+
+
+#voiceSearch{
+
+width:65px;
+
+font-size:24px;
+
+border:none;
+
+border-radius:12px;
+
+background:#2563eb;
+
+color:white;
+
+cursor:pointer;
+
+}
+
+
+#voiceSearch:hover{
+
+background:#1d4ed8;
+
+}
+
+
+
+/*==========================
+CATEGORY GRID
+==========================*/
+
+.categories{
+
+margin:35px 0;
+
+}
+
+
+.categories h2{
+
+margin-bottom:20px;
+
+color:#1e293b;
+
+}
+
+
+.category-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(150px,1fr));
+
+gap:18px;
+
+}
+
+
+.category-card{
+
+text-decoration:none;
+
+background:white;
+
+padding:25px;
+
+border-radius:18px;
+
+text-align:center;
+
+box-shadow:0 5px 15px rgba(0,0,0,.08);
+
+transition:.3s;
+
+color:#1e293b;
+
+}
+
+
+.category-card:hover{
+
+transform:translateY(-5px);
+
+background:#2563eb;
+
+color:white;
+
+}
+
+
+.category-card{
+
+font-size:40px;
+
+}
+
+
+.category-card span{
+
+display:block;
+
+margin-top:12px;
+
+font-size:16px;
+
+font-weight:600;
+
+}
+
+.card-link{
+    text-decoration:none;
+    color:inherit;
+    display:block;
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+<!-- ========================= NAVBAR ========================= -->
+
+<div class="navbar">
+
+    <!-- Logo -->
+    <div class="logo">
+        <i class="fa-solid fa-bridge"></i>
+        <span>JobBridge</span>
+    </div>
+
+    <!-- Right Side -->
+    <div class="nav-right">
+
+        <!-- Language Selector -->
+        <select id="languageSelector" title="Select Language">
+
+            <option value="en">🇬🇧 English</option>
+            <option value="te">🇮🇳 తెలుగు</option>
+            <option value="hi">🇮🇳 हिन्दी</option>
+
+        </select>
+
+        
+
+        <!-- Dashboard -->
+        <a href="/jobseeker/dashboard">
+
+            <i class="fa-solid fa-house"></i>
+
+            <span data-lang="dashboard">
+                Dashboard
+            </span>
+
+        </a>
+
+        <!-- Notifications -->
+        <a href="{{ url_for('jobseeker_notifications') }}">
+
+            <i class="fa-solid fa-bell"></i>
+
+            <span data-lang="notifications">
+                Notifications
+            </span>
+
+        </a>
+
+        <!-- Logout -->
+        <a href="/logout">
+
+            <i class="fa-solid fa-right-from-bracket"></i>
+
+            <span data-lang="logout">
+                Logout
+            </span>
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ========================= MAIN CONTAINER ========================= -->
+
+<div class="container">
+
+
+<!-- ========================= WELCOME ========================= -->
+
+<div class="welcome">
+
+    <h1>
+    👋
+    <span data-lang="welcome">Welcome</span>,
+    {{ name }}
+</h1>
+
+    <p id="welcomeDesc" data-lang="welcome_desc">
+        Find nearby jobs that match your skills and start working today.
+
+    </p>
+
+</div>
+
+<!-- ========================= -->
+<!-- Search Jobs -->
+<!-- ========================= -->
+<!-- ========================= -->
+<!-- Search Jobs -->
+<!-- ========================= -->
+
+<!-- ========================= -->
+<!-- Find Jobs -->
+<!-- ========================= -->
+
+<div class="search-box">
+
+    <h2>
+
+        🔍
+
+        <span data-lang="find_job">
+            Find Your Dream Job
+        </span>
+
+    </h2>
+
+    <p class="search-text" data-lang="search_desc">
+
+        Search jobs by job name, skill, company or location.
+
+    </p>
+
+    <form action="/jobs" method="GET">
+
+        <div class="search-input">
+
+            <input
+                type="text"
+                id="searchInput"
+                name="search"
+                data-placeholder="search_placeholder"
+                placeholder="Search jobs, skills, location..."
+                autocomplete="off">
+
+            <!-- Voice Search -->
+
+            
+
+        </div>
+
+        <button
+            type="submit"
+            class="search-btn">
+
+            🔍
+
+            <span data-lang="search_button">
+                Search
+            </span>
+
+        </button>
+
+    </form>
+
+</div>
+
+
+<!-- ========================= -->
+<!-- Popular Job Categories -->
+<!-- ========================= -->
+
+<div class="categories">
+
+    <h2>
+
+        🔥
+
+        <span data-lang="popular_jobs">
+
+            Popular Jobs
+
+        </span>
+
+    </h2>
+
+    <div class="category-grid">
+
+        <a href="/jobs?search=Carpenter" class="category-card">
+
+            🪚
+
+            <span data-lang="carpenter">
+                Carpenter
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Electrician" class="category-card">
+
+            ⚡
+
+            <span data-lang="electrician">
+                Electrician
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Plumber" class="category-card">
+
+            🚰
+
+            <span data-lang="plumber">
+                Plumber
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Driver" class="category-card">
+
+            🚚
+
+            <span data-lang="driver">
+                Driver
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Mason" class="category-card">
+
+            🧱
+
+            <span data-lang="mason">
+                Mason
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Painter" class="category-card">
+
+            🎨
+
+            <span data-lang="painter">
+                Painter
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Housekeeping" class="category-card">
+
+            🧹
+
+            <span data-lang="housekeeping">
+                Housekeeping
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Delivery" class="category-card">
+
+            📦
+
+            <span data-lang="delivery">
+                Delivery
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Nurse" class="category-card">
+
+            🏥
+
+            <span data-lang="nurse">
+                Nurse
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Teacher" class="category-card">
+
+            👩‍🏫
+
+            <span data-lang="teacher">
+                Teacher
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Computer" class="category-card">
+
+            💻
+
+            <span data-lang="computer">
+                Computer Jobs
+            </span>
+
+        </a>
+
+        <a href="/jobs?search=Security" class="category-card">
+
+            🛡️
+
+            <span data-lang="security">
+                Security Guard
+            </span>
+
+        </a>
+
+    </div>
+
+</div>
+
+<!-- ========================= -->
+<!-- Dashboard Cards -->
+<!-- ========================= -->
+
+<div class="dashboard-cards">
+
+    <!-- Search Jobs -->
+
+    <a href="/jobs" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <h3 data-lang="search_jobs">
+
+                Search Jobs
+
+            </h3>
+
+            <p data-lang="search_jobs_desc">
+
+                Find jobs based on your skills and location.
+
+            </p>
+
+            <button>
+
+                <span data-lang="find_jobs">
+
+                    Find Jobs
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+
+    <!-- My Applications -->
+
+    <a href="/my_applications" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-file-circle-check"></i>
+
+            <h3 data-lang="my_applications">
+
+                My Applications
+
+            </h3>
+
+            <p data-lang="applications_desc">
+
+                Track your applied jobs and application status.
+
+            </p>
+
+            <button>
+
+                <span data-lang="applications_button">
+
+                    View Applications
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+
+    <!-- Saved Jobs -->
+
+    <a href="/saved_jobs" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-bookmark"></i>
+
+            <h3 data-lang="saved_jobs">
+
+                Saved Jobs
+
+            </h3>
+
+            <p data-lang="saved_jobs_desc">
+
+                View your saved job opportunities anytime.
+
+            </p>
+
+            <button>
+
+                <span data-lang="saved_jobs_button">
+
+                    Saved Jobs
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+
+    <!-- My Profile -->
+
+    <a href="/profile" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-user"></i>
+
+            <h3 data-lang="my_profile">
+
+                My Profile
+
+            </h3>
+
+            <p data-lang="profile_desc">
+
+                Update your personal details and resume.
+
+            </p>
+
+            <button>
+
+                <span data-lang="profile_button">
+
+                    My Profile
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+
+    <!-- Messages -->
+
+    <a href="/messages" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-comments"></i>
+
+            <h3 data-lang="messages">
+
+                Messages
+
+            </h3>
+
+            <p data-lang="messages_desc">
+
+                Chat directly with employers.
+
+            </p>
+
+            <button>
+
+                <span data-lang="messages_button">
+
+                    Open Messages
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+
+    <!-- My Interviews -->
+
+    <a href="/my_interviews" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-calendar-check"></i>
+
+            <h3 data-lang="my_interviews">
+
+                My Interviews
+
+            </h3>
+
+            <p data-lang="interviews_desc">
+
+                View your scheduled interview details.
+
+            </p>
+
+            <button>
+
+                <span data-lang="view_details">
+
+                    View Details
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+
+    <!-- Analytics -->
+
+    <a href="/jobseeker/analytics" class="card-link">
+
+        <div class="card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3 data-lang="analytics">
+
+                Analytics
+
+            </h3>
+
+            <p data-lang="analytics_desc">
+
+                Check your application progress and statistics.
+
+            </p>
+
+            <button>
+
+                <span data-lang="view_analytics">
+
+                    View Analytics
+
+                </span>
+
+            </button>
+
+        </div>
+
+    </a>
+
+</div>
+
+<!-- Language JavaScript -->
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+<!-- Voice Feature -->
+<script src="{{ url_for('static', filename='js/modules/voice.js') }}"></script>
+
+</body>
+
+</html>

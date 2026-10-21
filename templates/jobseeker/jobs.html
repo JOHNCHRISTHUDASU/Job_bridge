@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Available Jobs - Job_Bridge</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+
+body{
+
+    background:#f4f8ff;
+    padding:40px;
+
+}
+
+
+h1{
+
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:40px;
+
+}
+
+
+
+.jobs-container{
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(320px,1fr));
+    gap:25px;
+
+}
+
+
+
+.job-card{
+
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,0.1);
+    transition:0.3s;
+
+}
+
+
+
+.job-card:hover{
+
+    transform:translateY(-8px);
+
+}
+
+
+
+.job-card h2{
+
+    color:#0d6efd;
+    margin-bottom:20px;
+    font-size:24px;
+
+}
+
+
+
+.job-card p{
+
+    color:#555;
+    margin:10px 0;
+    line-height:1.5;
+
+}
+
+
+
+.status{
+
+    display:inline-block;
+    background:#198754;
+    color:white;
+    padding:6px 18px;
+    border-radius:20px;
+    margin-top:15px;
+
+}
+
+
+
+.apply-btn{
+
+    display:inline-block;
+    margin-top:20px;
+    padding:12px 28px;
+    background:#0d6efd;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:0.3s;
+
+}
+
+
+
+.apply-btn:hover{
+
+    background:#084298;
+
+}
+
+
+
+.no-job{
+
+    background:white;
+    padding:40px;
+    text-align:center;
+    border-radius:20px;
+
+}
+
+.save-btn{
+
+display:inline-block;
+margin-top:20px;
+margin-left:10px;
+padding:12px 25px;
+background:#ffc107;
+color:black;
+text-decoration:none;
+border-radius:10px;
+}
+
+
+.save-btn:hover{
+
+background:#e0a800;
+
+}
+
+
+.dashboard-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:35px;
+
+    padding:14px 35px;
+
+    background:linear-gradient(135deg,#198754,#20c997);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    box-shadow:0 8px 20px rgba(25,135,84,0.3);
+
+    transition:0.3s;
+
+}
+
+
+.dashboard-btn:hover{
+
+    background:linear-gradient(135deg,#146c43,#198754);
+
+    transform:translateY(-5px);
+
+}
+
+
+</style>
+
+</head>
+
+
+<body>
+
+<!-- Language -->
+
+<div style="width:90%;margin:20px auto;text-align:right;">
+
+    <select id="languageSelector">
+
+        <option value="en">🌐 English</option>
+        <option value="te">🌐 తెలుగు</option>
+        <option value="hi">🌐 हिन्दी</option>
+
+    </select>
+
+</div>
+
+<h1>
+
+💼 <span data-lang="available_jobs">Available Jobs</span>
+
+</h1>
+
+<div class="jobs-container">
+
+{% if jobs %}
+
+{% for job in jobs %}
+
+<div class="job-card">
+
+<h2>{{job[2]}}</h2>
+
+<p>
+
+<b data-lang="category">Category</b> :
+
+{{job[3]}}
+
+</p>
+
+<p>
+
+<b data-lang="location">Location</b> :
+
+{{job[4]}}
+
+</p>
+
+<p>
+
+<b data-lang="salary">Salary</b> :
+
+{{job[5]}}
+
+</p>
+
+<p>
+
+<b data-lang="experience">Experience</b> :
+
+{{job[6]}}
+
+</p>
+
+<p>
+
+<b data-lang="job_type">Job Type</b> :
+
+{{job[7]}}
+
+</p>
+
+<p>
+
+<b data-lang="vacancies">Vacancies</b> :
+
+{{job[8]}}
+
+</p>
+
+<p>
+
+<b data-lang="skills">Skills</b> :
+
+{{job[9]}}
+
+</p>
+
+<p>
+
+<b data-lang="description">Description</b> :
+
+{{job[10]}}
+
+</p>
+
+<p>
+
+<b data-lang="deadline">Deadline</b> :
+
+{{job[11]}}
+
+</p>
+
+<p>
+
+<b data-lang="status">Status</b> :
+
+<span class="status">
+
+{{job[12]}}
+
+</span>
+
+</p>
+
+<br>
+
+<a class="apply-btn" href="/apply/{{job[0]}}">
+
+<span data-lang="apply_now">
+
+Apply Now
+
+</span>
+
+</a>
+
+<a class="save-btn" href="/save_job/{{job[0]}}">
+
+⭐ <span data-lang="save_job">
+
+Save Job
+
+</span>
+
+</a>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="no-job">
+
+<h2>
+
+😔 <span data-lang="no_jobs">
+
+No Jobs Available
+
+</span>
+
+</h2>
+
+<p data-lang="no_jobs_desc">
+
+Currently there are no job openings. Please check again later.
+
+</p>
+
+</div>
+
+{% endif %}
+
+</div>
+
+<a class="dashboard-btn" href="/jobseeker/dashboard">
+
+<span data-lang="back_dashboard">
+
+← Back to Dashboard
+
+</span>
+
+</a>
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+</body>
+</html>

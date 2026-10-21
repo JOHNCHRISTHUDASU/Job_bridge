@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+
+<title>Company Profile</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:linear-gradient(135deg,#eef4ff,#dfefff);
+    min-height:100vh;
+}
+
+/* ================= CONTAINER ================= */
+
+.container{
+    max-width:950px;
+    margin:40px auto;
+    padding:20px;
+}
+
+/* ================= CARD ================= */
+
+.card{
+    background:#fff;
+    border-radius:25px;
+    padding:40px;
+    box-shadow:0 15px 45px rgba(13,110,253,.12);
+    transition:.35s;
+}
+
+.card:hover{
+    transform:translateY(-5px);
+    box-shadow:0 20px 55px rgba(13,110,253,.18);
+}
+
+/* ================= HEADER ================= */
+
+.header{
+    text-align:center;
+    margin-bottom:40px;
+}
+
+.logo{
+    width:120px;
+    height:120px;
+    border-radius:50%;
+    background:linear-gradient(135deg,#0d6efd,#4b8df8);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#fff;
+    font-size:48px;
+    margin:auto;
+    margin-bottom:20px;
+    box-shadow:0 10px 30px rgba(13,110,253,.30);
+}
+
+.header h1{
+    color:#0d6efd;
+    font-size:32px;
+    margin-bottom:8px;
+}
+
+.header p{
+    color:#777;
+    font-size:16px;
+}
+
+/* ================= COMPANY INFO ================= */
+
+.info{
+    display:grid;
+    grid-template-columns:190px 1fr;
+    gap:18px;
+    margin-top:30px;
+}
+
+.label{
+    font-weight:600;
+    color:#0d6efd;
+}
+
+.value{
+    color:#444;
+    word-break:break-word;
+}
+
+/* ================= STATS ================= */
+
+.stats{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(180px,1fr));
+    gap:22px;
+    margin-top:45px;
+}
+
+.box{
+    background:linear-gradient(145deg,#ffffff,#f3f8ff);
+    border-radius:18px;
+    padding:30px;
+    text-align:center;
+    box-shadow:0 8px 20px rgba(0,0,0,.06);
+    transition:.35s;
+    border:1px solid #e8eefc;
+}
+
+.box:hover{
+    transform:translateY(-8px);
+    box-shadow:0 15px 35px rgba(13,110,253,.18);
+}
+
+.box h2{
+    font-size:40px;
+    color:#0d6efd;
+    margin-bottom:10px;
+}
+
+.box p{
+    color:#666;
+    font-weight:500;
+}
+
+/* ================= BUTTONS ================= */
+
+.buttons{
+    margin-top:45px;
+    display:flex;
+    justify-content:center;
+    gap:20px;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    min-width:190px;
+    padding:14px 28px;
+    border-radius:12px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    transition:.3s;
+    cursor:pointer;
+}
+
+.edit{
+    background:linear-gradient(135deg,#0d6efd,#4b8df8);
+    color:#fff;
+    box-shadow:0 8px 20px rgba(13,110,253,.30);
+}
+
+.edit:hover{
+    transform:translateY(-3px);
+    box-shadow:0 12px 28px rgba(13,110,253,.45);
+}
+
+.back{
+    background:#6c757d;
+    color:#fff;
+}
+
+.back:hover{
+    background:#545b62;
+    transform:translateY(-3px);
+}
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:768px){
+
+.info{
+    grid-template-columns:1fr;
+}
+
+.label{
+    margin-top:10px;
+}
+
+.logo{
+    width:100px;
+    height:100px;
+    font-size:40px;
+}
+
+.header h1{
+    font-size:26px;
+}
+
+.buttons{
+    flex-direction:column;
+}
+
+.btn{
+    width:100%;
+}
+
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="card">
+
+<div class="header">
+
+<div class="logo">
+
+🏢
+
+</div>
+
+<h1>{{ employer[1] or "Company" }}</h1>
+
+<p>Company Profile</p>
+
+</div>
+
+<div class="info">
+
+<div class="label">Employer</div>
+
+<div class="value">{{ employer[0] }}</div>
+
+<div class="label">Company</div>
+
+<div class="value">{{ employer[1] or "Not Added" }}</div>
+
+<div class="label">Email</div>
+
+<div class="value">{{ employer[2] }}</div>
+
+<div class="label">Phone</div>
+
+<div class="value">{{ employer[3] }}</div>
+
+<div class="label">Location</div>
+
+<div class="value">{{ employer[4] }}</div>
+
+<div class="label">About Company</div>
+
+<div class="value">
+
+{{ employer[5] or "No company description added." }}
+
+</div>
+
+<div class="label">Member Since</div>
+
+<div class="value">{{ employer[7] }}</div>
+
+</div>
+
+<div class="stats">
+
+<div class="box">
+
+<h2>{{ total_jobs }}</h2>
+
+<p>Jobs Posted</p>
+
+</div>
+
+<div class="box">
+
+<h2>{{ open_jobs }}</h2>
+
+<p>Open Jobs</p>
+
+</div>
+
+<div class="box">
+
+<h2>{{ applicants }}</h2>
+
+<p>Total Applicants</p>
+
+</div>
+
+</div>
+
+<div class="buttons">
+
+    <a href="{{ url_for('edit_company_profile') }}" class="btn edit">
+        ✏ Edit Company
+    </a>
+
+    <a href="{{ url_for('employer_dashboard') }}" class="btn back">
+        ← Back
+    </a>
+
+</div>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

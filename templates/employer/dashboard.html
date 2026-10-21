@@ -1,0 +1,622 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employer Dashboard | Job_Bridge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+body{
+    background:#eef4ff;
+    display:flex;
+    color:#333;
+}
+
+/* ================= Scrollbar ================= */
+
+::-webkit-scrollbar{
+    width:8px;
+}
+
+::-webkit-scrollbar-thumb{
+    background:#0d6efd;
+    border-radius:20px;
+}
+
+::-webkit-scrollbar-track{
+    background:#edf2fb;
+}
+
+/* ================= SIDEBAR ================= */
+
+.sidebar{
+    width:260px;
+    height:100vh;
+    background:linear-gradient(180deg,#0d6efd,#0048c8);
+    color:#fff;
+    position:fixed;
+    left:0;
+    top:0;
+    overflow-y:auto;
+    box-shadow:5px 0 20px rgba(0,0,0,.15);
+    z-index:1000;
+}
+
+.logo{
+    padding:28px 20px;
+    text-align:center;
+    font-size:28px;
+    font-weight:700;
+    letter-spacing:1px;
+    border-bottom:1px solid rgba(255,255,255,.15);
+}
+
+.logo i{
+    margin-right:8px;
+}
+
+.sidebar a{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    padding:16px 28px;
+    color:#fff;
+    text-decoration:none;
+    transition:.35s;
+    font-size:15px;
+    border-left:4px solid transparent;
+}
+
+.sidebar a:hover{
+    background:rgba(255,255,255,.15);
+    border-left:4px solid #fff;
+    padding-left:35px;
+}
+
+.sidebar a.active{
+    background:#fff;
+    color:#0d6efd;
+    font-weight:600;
+    border-left:4px solid #0d6efd;
+}
+
+.sidebar a i{
+    width:25px;
+    font-size:18px;
+}
+
+/* ================= MAIN ================= */
+
+.main{
+    margin-left:260px;
+    width:calc(100% - 260px);
+    min-height:100vh;
+}
+
+/* ================= TOPBAR ================= */
+
+.topbar{
+    background:#fff;
+    padding:18px 35px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    box-shadow:0 5px 18px rgba(0,0,0,.08);
+    position:sticky;
+    top:0;
+    z-index:999;
+}
+
+.topbar h2{
+    color:#0d6efd;
+    font-size:28px;
+}
+
+.profile{
+    display:flex;
+    align-items:center;
+    gap:12px;
+}
+
+.profile img{
+    width:48px;
+    height:48px;
+    border-radius:50%;
+    object-fit:cover;
+    border:3px solid #0d6efd;
+}
+
+.profile b{
+    font-size:15px;
+}
+
+/* ================= WELCOME ================= */
+
+.welcome{
+    margin:30px;
+    padding:35px;
+    border-radius:20px;
+    color:white;
+    background:linear-gradient(135deg,#0d6efd,#2f80ed,#56ccf2);
+    background-size:250% 250%;
+    animation:gradientMove 8s infinite;
+    box-shadow:0 15px 35px rgba(13,110,253,.25);
+}
+
+@keyframes gradientMove{
+
+0%{
+background-position:left;
+}
+
+50%{
+background-position:right;
+}
+
+100%{
+background-position:left;
+}
+
+}
+
+.welcome h1{
+    font-size:34px;
+    margin-bottom:12px;
+}
+
+.welcome p{
+    width:80%;
+    line-height:1.7;
+}
+
+/* ================= CARDS ================= */
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:25px;
+    padding:0 30px 35px;
+}
+
+.card{
+    background:#fff;
+    border-radius:20px;
+    padding:30px;
+    text-align:center;
+    transition:.35s;
+    box-shadow:0 8px 25px rgba(0,0,0,.08);
+    position:relative;
+    overflow:hidden;
+}
+
+.card::before{
+    content:"";
+    position:absolute;
+    top:0;
+    left:0;
+    width:100%;
+    height:5px;
+    background:#0d6efd;
+}
+
+.card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 18px 35px rgba(0,0,0,.15);
+}
+
+.card i{
+    width:85px;
+    height:85px;
+    line-height:85px;
+    border-radius:50%;
+    background:#eaf3ff;
+    color:#0d6efd;
+    font-size:34px;
+    margin-bottom:18px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    font-size:22px;
+}
+
+.card p{
+    color:#666;
+    line-height:1.6;
+    margin-bottom:22px;
+    min-height:48px;
+}
+
+.card a{
+    display:inline-block;
+    text-decoration:none;
+    background:#0d6efd;
+    color:white;
+    padding:11px 25px;
+    border-radius:10px;
+    transition:.3s;
+    font-weight:500;
+}
+
+.card a:hover{
+    background:#0048c8;
+    transform:scale(1.05);
+}
+
+/* ================= EDIT COMPANY BUTTON ================= */
+
+.edit-company-btn{
+    display:inline-block;
+    width:100%;
+    padding:12px;
+    background:linear-gradient(135deg,#0d6efd,#2563eb);
+    color:#fff;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:600;
+    text-align:center;
+    transition:.3s;
+    box-shadow:0 8px 18px rgba(13,110,253,.25);
+}
+
+.edit-company-btn:hover{
+    background:linear-gradient(135deg,#0048c8,#0d6efd);
+    transform:translateY(-3px);
+    box-shadow:0 12px 25px rgba(13,110,253,.35);
+}
+
+.card h2{
+    color:#0d6efd;
+    margin-top:10px;
+    font-size:34px;
+}
+
+/* ================= Footer ================= */
+
+.footer{
+    text-align:center;
+    padding:28px;
+    color:#666;
+    font-size:14px;
+}
+
+/* ================= Animation ================= */
+
+.card{
+    animation:fadeUp .7s ease;
+}
+
+@keyframes fadeUp{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* ================= Responsive ================= */
+
+@media(max-width:992px){
+
+.sidebar{
+    width:220px;
+}
+
+.main{
+    margin-left:220px;
+    width:calc(100% - 220px);
+}
+
+}
+
+@media(max-width:768px){
+
+.sidebar{
+    position:relative;
+    width:100%;
+    height:auto;
+}
+
+.main{
+    margin-left:0;
+    width:100%;
+}
+
+body{
+    display:block;
+}
+
+.cards{
+    grid-template-columns:1fr;
+}
+
+.topbar{
+    flex-direction:column;
+    gap:15px;
+}
+
+.welcome p{
+    width:100%;
+}
+
+}
+
+
+.notify{
+
+    width:42px;
+    height:42px;
+    border-radius:50%;
+    background:#ffffff;
+    color:#333;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    text-decoration:none;
+    margin-right:15px;
+    font-size:18px;
+    box-shadow:0 2px 8px rgba(0,0,0,.15);
+    transition:.3s;
+
+}
+
+.notify:hover{
+
+    background:#2563eb;
+    color:#fff;
+    transform:scale(1.08);
+
+}
+
+
+</style>
+
+</head>
+
+<body>
+
+<!-- ======================= SIDEBAR ======================= -->
+
+<div class="sidebar">
+
+    <div class="logo">
+        <i class="fa-solid fa-bridge"></i>
+        Job_Bridge
+    </div>
+
+    <a href="/employer/dashboard" class="active">
+        <i class="fa-solid fa-house"></i>
+        Dashboard
+    </a>
+
+    <a href="/post_job">
+        <i class="fa-solid fa-plus"></i>
+        Post Job
+    </a>
+
+    <a href="/my_jobs">
+        <i class="fa-solid fa-briefcase"></i>
+        My Jobs
+    </a>
+
+    <a href="/view_applicants">
+        <i class="fa-solid fa-users"></i>
+        Applicants
+    </a>
+
+    <a href="/employer/notifications">
+        <i class="fa-solid fa-bell"></i>
+        Notifications
+    </a>
+
+    <a href="/analytics">
+        <i class="fa-solid fa-chart-line"></i>
+        Analytics
+    </a>
+
+    <a href="/employer/profile">
+        <i class="fa-solid fa-user"></i>
+        My Profile
+    </a>
+
+    
+
+    <a href="/logout">
+        <i class="fa-solid fa-right-from-bracket"></i>
+        Logout
+    </a>
+
+</div>
+
+<!-- ======================= MAIN ======================= -->
+
+<div class="main">
+
+    <!-- ================= TOPBAR ================= -->
+
+<div class="topbar">
+
+    <h2>Employer Dashboard</h2>
+
+    <div class="profile">
+
+        <!-- Notifications -->
+
+        <a href="{{ url_for('employer_notifications') }}" class="notify">
+
+            <i class="fa-solid fa-bell"></i>
+
+        </a>
+
+        <!-- Profile Image -->
+
+        {% if profile_image and profile_image != "default.png" %}
+
+        <img src="{{ url_for('static', filename='uploads/' + profile_image) }}" alt="Profile">
+
+        {% else %}
+
+        <img src="{{ url_for('static', filename='images/default.png') }}" alt="Profile">
+
+        {% endif %}
+
+        <b>{{ name }}</b>
+
+    </div>
+
+</div>
+    <!-- ================= WELCOME ================= -->
+
+    <div class="welcome">
+
+        <h1>Welcome, {{ name }} 👋</h1>
+
+        <p>
+            Manage jobs, recruit talented candidates, review applications,
+            communicate with applicants and monitor your hiring process.
+        </p>
+
+    </div>
+
+    <!-- ================= DASHBOARD STATISTICS ================= -->
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fa-solid fa-briefcase"></i>
+            <h3>Total Jobs</h3>
+            <h2>{{ total_jobs }}</h2>
+        </div>
+
+        <div class="card">
+            <i class="fa-solid fa-circle-check"></i>
+            <h3>Open Jobs</h3>
+            <h2>{{ open_jobs }}</h2>
+        </div>
+
+        <div class="card">
+    <i class="fa-solid fa-users"></i>
+    <h2>{{ total_applicants }}</h2>
+    <h3>Total Applicants</h3>
+</div>
+
+    </div>
+
+    <!-- ================= QUICK ACTIONS ================= -->
+
+    <div class="cards">
+
+        <div class="card">
+
+            <i class="fa-solid fa-plus"></i>
+
+            <h3>Post Job</h3>
+
+            <p>Create a new job opening.</p>
+
+            <a href="/post_job">Open</a>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <h3>My Jobs</h3>
+
+            <p>Manage all posted jobs.</p>
+
+            <a href="/my_jobs">Open</a>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-users"></i>
+
+            <h3>Applicants</h3>
+
+            <p>View candidates who applied.</p>
+
+            <a href="/view_applicants">Open</a>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-comments"></i>
+
+            <h3>Messages</h3>
+
+            <p>Chat with job seekers.</p>
+
+            <a href="/employer/messages">Open</a>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-chart-line"></i>
+
+            <h3>Analytics</h3>
+
+            <p>Hiring statistics and reports.</p>
+
+            <a href="/analytics">Open</a>
+
+        </div>
+
+        <div class="card">
+
+            <i class="fa-solid fa-user"></i>
+
+            <h3>My Profile</h3>
+
+            <p>View your company profile.</p>
+
+            <a href="/employer/profile">Open</a>
+
+        </div>
+
+        
+
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+
+    <div class="footer">
+
+        © 2026 Job_Bridge • Employer Portal
+
+    </div>
+
+</div>
+
+</body>
+</html>

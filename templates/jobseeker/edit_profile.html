@@ -1,0 +1,600 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Edit Profile</title>
+
+
+<style>
+
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins, sans-serif;
+}
+
+
+body{
+
+    min-height:100vh;
+
+    padding:40px;
+
+    background:linear-gradient(
+        135deg,
+        #2b99e2,
+        #0f71d3,
+        #317ee3
+    );
+
+}
+
+
+
+/* Main Card */
+
+.edit-container{
+
+    max-width:750px;
+
+    margin:20px auto;
+
+    background:white;
+
+    padding:40px;
+
+    border-radius:30px;
+
+    box-shadow:
+    0 15px 40px rgba(0,0,0,0.15);
+
+}
+
+
+
+/* Heading */
+
+h1{
+
+    text-align:center;
+
+    color:#0d6efd;
+
+    font-size:35px;
+
+    margin-bottom:35px;
+
+}
+
+
+
+/* Labels */
+
+label{
+
+    display:block;
+
+    margin-top:20px;
+
+    margin-bottom:8px;
+
+    color:#333;
+
+    font-weight:600;
+
+}
+
+
+
+/* Inputs */
+
+input,
+textarea,
+select{
+
+
+    width:100%;
+
+    padding:15px;
+
+    margin-bottom:15px;
+
+    border:none;
+
+    outline:none;
+
+    background:#f1f5f9;
+
+    border-radius:15px;
+
+    font-size:16px;
+
+    transition:0.3s;
+
+}
+
+
+
+input:focus,
+textarea:focus,
+select:focus{
+
+    background:white;
+
+    border:2px solid #0d6efd;
+
+}
+
+
+
+
+/* Text Area */
+
+textarea{
+
+    height:150px;
+
+    resize:none;
+
+}
+
+
+
+
+/* Upload Box */
+
+.upload-box{
+
+    background:#f8fafc;
+
+    padding:20px;
+
+    margin-top:20px;
+
+    border-radius:20px;
+
+    border-left:6px solid #0d6efd;
+
+}
+
+
+
+
+input[type="file"]{
+
+    background:white;
+
+    padding:12px;
+
+}
+
+
+
+/* Save Button */
+
+.save-btn{
+
+    width:100%;
+
+    padding:16px;
+
+    margin-top:30px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:linear-gradient(
+        90deg,
+        #2563eb,
+        #0d6efd
+    );
+
+    color:white;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+
+.save-btn:hover{
+
+    transform:translateY(-3px);
+
+    box-shadow:
+    0 10px 25px rgba(13,110,253,0.4);
+
+}
+
+
+
+/* Back Button */
+
+.back-btn{
+
+    display:block;
+
+    width:100%;
+
+    text-align:center;
+
+    margin-top:20px;
+
+    padding:15px;
+
+    background:#334155;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:15px;
+
+    font-size:17px;
+
+}
+
+
+
+.back-btn:hover{
+
+    background:#1e293b;
+
+}
+
+
+
+/* Profile Image */
+
+.profile-preview{
+
+    text-align:center;
+
+    margin-bottom:25px;
+
+}
+
+
+.profile-preview img{
+
+    width:130px;
+
+    height:130px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:5px solid #0d6efd;
+
+}
+
+
+
+.save-btn{
+
+    display:block;
+
+    width:200px;
+
+    margin:25px auto 0;
+
+    padding:12px 20px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#0d6efd;
+
+    color:white;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:0.3s;
+
+}
+
+
+.save-btn:hover{
+
+    background:#084298;
+
+    transform:scale(1.05);
+
+}
+
+
+
+
+.back-btn{
+
+    display:block;
+
+    width:200px;
+
+    margin:15px auto;
+
+    padding:12px 20px;
+
+    text-align:center;
+
+    border-radius:10px;
+
+    background:#6c757d;
+
+    color:white;
+
+    text-decoration:none;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    transition:0.3s;
+
+}
+
+
+
+.back-btn:hover{
+
+    background:#495057;
+
+    transform:scale(1.05);
+
+}
+
+
+
+</style>
+
+
+</head>
+
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<title>Edit Profile</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    min-height:100vh;
+    padding:40px;
+    background:linear-gradient(135deg,#2b99e2,#0f71d3,#317ee3);
+}
+
+.edit-container{
+    max-width:750px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,0.15);
+}
+
+h1{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:30px;
+}
+
+label{
+    display:block;
+    font-weight:600;
+    margin-top:15px;
+    margin-bottom:6px;
+    color:#333;
+}
+
+input,
+textarea{
+    width:100%;
+    padding:14px;
+    border:1px solid #ddd;
+    border-radius:12px;
+    font-size:15px;
+}
+
+textarea{
+    resize:none;
+    height:120px;
+}
+
+input:focus,
+textarea:focus{
+    outline:none;
+    border-color:#0d6efd;
+}
+
+.save-btn{
+    width:100%;
+    padding:15px;
+    margin-top:25px;
+    border:none;
+    border-radius:12px;
+    background:#0d6efd;
+    color:white;
+    font-size:17px;
+    cursor:pointer;
+}
+
+.save-btn:hover{
+    background:#0b5ed7;
+}
+
+.back-btn{
+    display:block;
+    text-align:center;
+    margin-top:15px;
+    padding:15px;
+    border-radius:12px;
+    text-decoration:none;
+    background:#6c757d;
+    color:white;
+}
+
+.back-btn:hover{
+    background:#495057;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="edit-container">
+
+    <!-- Language -->
+
+    <div style="text-align:right;margin-bottom:20px;">
+
+        <select id="languageSelector">
+
+            <option value="en">🌐 English</option>
+            <option value="te">🌐 తెలుగు</option>
+            <option value="hi">🌐 हिन्दी</option>
+
+        </select>
+
+    </div>
+
+    <h1>
+
+        ✏️ <span data-lang="edit_profile">Edit Profile</span>
+
+    </h1>
+
+    <form action="/save_profile" method="POST">
+
+        <label data-lang="phone_number">
+
+            Phone Number
+
+        </label>
+
+        <input
+            type="text"
+            name="phone"
+            value="{{user[4] or ''}}">
+
+        <label data-lang="location">
+
+            Location
+
+        </label>
+
+        <input
+            type="text"
+            name="location"
+            value="{{user[7] or ''}}">
+
+        <label data-lang="qualification">
+
+            Qualification
+
+        </label>
+
+        <input
+            type="text"
+            name="qualification"
+            value="{{user[8] or ''}}">
+
+        <label data-lang="skills">
+
+            Skills
+
+        </label>
+
+        <input
+            type="text"
+            name="skills"
+            data-placeholder="skills_placeholder"
+            placeholder="Python, Flask, MySQL"
+            value="{{user[9] or ''}}">
+
+        <label data-lang="experience">
+
+            Experience
+
+        </label>
+
+        <input
+            type="text"
+            name="experience"
+            data-placeholder="experience_placeholder"
+            placeholder="Fresher / 1 Year"
+            value="{{user[10] or ''}}">
+
+        <label data-lang="about_yourself">
+
+            About Yourself
+
+        </label>
+
+        <textarea
+            name="bio"
+            data-placeholder="bio_placeholder"
+            placeholder="Write something about yourself...">{{user[14] or ''}}</textarea>
+
+        <button
+            class="save-btn"
+            type="submit">
+
+            💾 <span data-lang="save_profile">
+
+                Save Profile
+
+            </span>
+
+        </button>
+
+    </form>
+
+    <a
+        class="back-btn"
+        href="/profile">
+
+        <span data-lang="back_profile">
+
+            ← Back to Profile
+
+        </span>
+
+    </a>
+
+</div>
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+</body>
+
+
+</html>

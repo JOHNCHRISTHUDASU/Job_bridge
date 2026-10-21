@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Login | Job_Bridge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+background:#f3f6ff;
+
+}
+
+.container{
+
+width:400px;
+
+background:white;
+
+padding:35px;
+
+border-radius:15px;
+
+box-shadow:0 10px 30px rgba(0,0,0,.15);
+
+}
+
+h2{
+
+text-align:center;
+
+margin-bottom:20px;
+
+color:#0d6efd;
+
+}
+
+input,select{
+
+width:100%;
+
+padding:12px;
+
+margin:10px 0;
+
+border-radius:8px;
+
+border:1px solid #ccc;
+
+}
+
+button{
+
+width:100%;
+
+padding:12px;
+
+background:#0d6efd;
+
+color:white;
+
+border:none;
+
+border-radius:8px;
+
+cursor:pointer;
+
+font-size:16px;
+
+}
+
+button:hover{
+
+background:#0056d2;
+
+}
+
+a{
+
+text-decoration:none;
+
+color:#0d6efd;
+
+}
+
+p{
+
+text-align:center;
+
+margin-top:15px;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Login</h2>
+
+<form action="/login" method="POST">
+
+<select name="role" required>
+
+<option value="">Login As</option>
+
+<option>Job Seeker</option>
+
+<option>Employer</option>
+
+<option>Admin</option>
+
+</select>
+
+<input type="email" name="email" placeholder="Email" required>
+
+<input type="password" name="password" placeholder="Password" required>
+
+<button type="submit">Login</button>
+
+</form>
+
+<p>
+
+Don't have an account?
+
+<a href="/register">Register</a>
+
+</p>
+
+</div>
+
+</body>
+
+</html>

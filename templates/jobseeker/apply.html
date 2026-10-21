@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Apply Job - JobBridge</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Poppins,sans-serif;
+}
+
+body{
+    background:#f4f8ff;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.apply-container{
+    width:500px;
+    background:white;
+    padding:35px;
+    border-radius:25px;
+    box-shadow:0 10px 30px rgba(0,0,0,.12);
+}
+
+.language{
+    display:flex;
+    justify-content:flex-end;
+    margin-bottom:20px;
+}
+
+#languageSelector{
+    padding:8px 12px;
+    border-radius:8px;
+    border:1px solid #ccc;
+    cursor:pointer;
+}
+
+h1{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:25px;
+}
+
+.job-details{
+    background:#f8f9fa;
+    padding:25px;
+    border-radius:18px;
+    margin-bottom:25px;
+}
+
+.job-details h2{
+    color:#0d6efd;
+    margin-bottom:15px;
+}
+
+.job-details p{
+    margin:10px 0;
+    color:#555;
+    line-height:1.5;
+}
+
+.status{
+    display:inline-block;
+    background:#198754;
+    color:white;
+    padding:6px 18px;
+    border-radius:20px;
+    margin-top:10px;
+}
+
+.apply-btn{
+    width:100%;
+    padding:15px;
+    background:#0d6efd;
+    color:white;
+    border:none;
+    border-radius:12px;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+.apply-btn:hover{
+    background:#084298;
+    transform:translateY(-3px);
+}
+
+.back-btn{
+    display:block;
+    text-align:center;
+    margin-top:20px;
+    text-decoration:none;
+    color:#0d6efd;
+    font-weight:bold;
+}
+
+.flash{
+    background:#d1e7dd;
+    color:#0f5132;
+    padding:12px;
+    border-radius:10px;
+    margin-bottom:20px;
+    text-align:center;
+}
+
+.flash{
+    padding:12px 20px;
+    margin:15px 0;
+    border-radius:10px;
+    text-align:center;
+    font-weight:bold;
+}
+
+.flash.success{
+    background:#d1e7dd;
+    color:#0f5132;
+}
+
+.flash.warning{
+    background:#fff3cd;
+    color:#664d03;
+}
+
+.flash.danger{
+    background:#f8d7da;
+    color:#842029;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="apply-container">
+
+    <!-- Language Selector -->
+
+    <div class="language">
+
+        <select id="languageSelector">
+
+            <option value="en">🌐 English</option>
+            <option value="te">🌐 తెలుగు</option>
+            <option value="hi">🌐 हिन्दी</option>
+
+        </select>
+
+    </div>
+
+<!-- Heading -->
+
+<h1>
+
+    📝 <span data-lang="apply_job">Apply For Job</span>
+
+</h1>
+
+
+<!-- Job Details -->
+
+<div class="job-details">
+
+    <h2>{{ job[2] }}</h2>
+
+    <p>
+
+        <b data-lang="category">Category</b> :
+        {{ job[3] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="location">Location</b> :
+        {{ job[4] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="salary">Salary</b> :
+        {{ job[5] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="experience">Experience</b> :
+        {{ job[6] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="job_type">Job Type</b> :
+        {{ job[7] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="vacancies">Vacancies</b> :
+        {{ job[8] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="skills">Skills</b> :
+        {{ job[9] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="description">Description</b> :
+        {{ job[10] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="deadline">Deadline</b> :
+        {{ job[11] }}
+
+    </p>
+
+    <p>
+
+        <b data-lang="status">Status</b> :
+
+        <span class="status">
+
+            {% if job[12] == "Open" %}
+
+                <span data-lang="open">Open</span>
+
+            {% elif job[12] == "Closed" %}
+
+                <span data-lang="closed">Closed</span>
+
+            {% else %}
+
+                {{ job[12] }}
+
+            {% endif %}
+
+        </span>
+
+    </p>
+
+</div>
+
+<!-- Flash Messages -->
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+
+    {% if messages %}
+
+        {% for category, message in messages %}
+
+            <div class="flash {{ category }}">
+                {{ message }}
+            </div>
+
+        {% endfor %}
+
+    {% endif %}
+
+{% endwith %}
+<!-- Apply Button -->
+
+<form method="POST">
+
+    <button class="apply-btn" type="submit">
+
+        🚀 <span data-lang="submit_application">Submit Application</span>
+
+    </button>
+
+</form>
+
+
+<!-- Back -->
+
+<a class="back-btn" href="{{ url_for('available_jobs') }}">
+
+    <span data-lang="back_jobs">
+
+        ← Back to Available Jobs
+
+    </span>
+
+</a>
+
+</div>
+
+
+<!-- Language Script -->
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+</body>
+
+
+</html>

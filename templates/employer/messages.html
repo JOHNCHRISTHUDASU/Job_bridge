@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employer Messages</title>
+
+    <style>
+
+    body{
+        font-family:Poppins,sans-serif;
+        background:#f4f7fb;
+        padding:40px;
+    }
+
+    .container{
+        max-width:800px;
+        margin:auto;
+        background:#fff;
+        padding:30px;
+        border-radius:15px;
+        box-shadow:0 5px 15px rgba(0,0,0,.1);
+    }
+
+    .user{
+        display:flex;
+        justify-content:space-between;
+        align-items:center;
+        padding:15px;
+        margin-bottom:15px;
+        border:1px solid #ddd;
+        border-radius:10px;
+    }
+
+    a{
+        text-decoration:none;
+        background:#0d6efd;
+        color:#fff;
+        padding:10px 20px;
+        border-radius:8px;
+    }
+
+    </style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h2>💬 Employer Messages</h2>
+
+{% if conversations %}
+
+    {% for user in conversations %}
+
+    <div class="user">
+
+        <div>
+            {{ user[1] }}
+        </div>
+
+        <a href="{{ url_for('start_chat', user_id=user[0]) }}">
+            Open Chat
+        </a>
+
+    </div>
+
+    {% endfor %}
+
+{% else %}
+
+<p>No conversations found.</p>
+
+{% endif %}
+
+</div>
+
+</body>
+</html>

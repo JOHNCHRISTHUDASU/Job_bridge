@@ -1,0 +1,569 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Job - JobBridge Admin</title>
+
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+body{
+
+    background:#f4f6f9;
+
+}
+
+
+
+.main{
+
+    width:80%;
+    margin:40px auto;
+
+}
+
+
+
+h1{
+
+    color:#1f2937;
+    margin-bottom:25px;
+
+}
+
+
+
+.card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+.form-group{
+
+    margin-bottom:20px;
+
+}
+
+
+
+.form-group label{
+
+    display:block;
+
+    font-weight:bold;
+
+    margin-bottom:8px;
+
+    color:#374151;
+
+}
+
+
+
+.form-group input,
+.form-group textarea,
+.form-group select{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #d1d5db;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+
+
+
+textarea{
+
+    height:120px;
+
+    resize:none;
+
+}
+
+
+
+.row{
+
+    display:flex;
+
+    gap:20px;
+
+}
+
+
+
+.row .form-group{
+
+    flex:1;
+
+}
+
+
+
+/* BUTTONS */
+
+
+.buttons{
+
+    margin-top:25px;
+
+}
+
+
+
+.btn{
+
+    display:inline-block;
+
+    padding:12px 25px;
+
+    border-radius:8px;
+
+    text-decoration:none;
+
+    border:none;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+}
+
+
+
+.save{
+
+    background:#2563eb;
+
+    color:white;
+
+}
+
+
+
+.save:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+.back{
+
+    background:#6b7280;
+
+    color:white;
+
+    margin-left:10px;
+
+}
+
+
+
+.back:hover{
+
+    background:#4b5563;
+
+}
+
+
+
+@media(max-width:768px){
+
+
+.main{
+
+    width:90%;
+
+}
+
+
+.row{
+
+    display:block;
+
+}
+
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+
+<div class="main">
+
+
+<h1>
+
+<i class="fa-solid fa-pen"></i>
+
+Edit Job
+
+</h1>
+
+
+
+
+{% if job %}
+
+
+
+<div class="card">
+
+
+
+<form method="POST">
+
+
+
+<div class="form-group">
+
+<label>Job Title</label>
+
+<input 
+type="text"
+name="title"
+value="{{ job[2] }}"
+required>
+
+</div>
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>Category</label>
+
+<input
+type="text"
+name="category"
+value="{{ job[3] }}"
+required>
+
+</div>
+
+
+
+
+<div class="form-group">
+
+<label>Location</label>
+
+<input
+type="text"
+name="location"
+value="{{ job[4] }}"
+required>
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>Salary</label>
+
+<input
+type="text"
+name="salary"
+value="{{ job[5] }}">
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>Experience</label>
+
+<input
+type="text"
+name="experience"
+value="{{ job[6] }}">
+
+</div>
+
+
+</div>
+
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>Job Type</label>
+
+
+<select name="job_type">
+
+
+<option value="Full Time"
+{% if job[7]=='Full Time' %}selected{% endif %}>
+Full Time
+</option>
+
+
+<option value="Part Time"
+{% if job[7]=='Part Time' %}selected{% endif %}>
+Part Time
+</option>
+
+
+<option value="Contract"
+{% if job[7]=='Contract' %}selected{% endif %}>
+Contract
+</option>
+
+
+<option value="Internship"
+{% if job[7]=='Internship' %}selected{% endif %}>
+Internship
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>Vacancies</label>
+
+<input
+type="number"
+name="vacancies"
+value="{{ job[8] }}">
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label>Skills</label>
+
+<input
+type="text"
+name="skills"
+value="{{ job[9] }}">
+
+</div>
+
+
+
+
+
+
+
+<div class="form-group">
+
+<label>Description</label>
+
+
+<textarea name="description">{{ job[10] }}</textarea>
+
+
+</div>
+
+
+
+
+
+
+
+<div class="row">
+
+
+<div class="form-group">
+
+<label>Application Deadline</label>
+
+<input
+type="date"
+name="deadline"
+value="{{ job[11] }}">
+
+
+</div>
+
+
+
+
+
+<div class="form-group">
+
+<label>Status</label>
+
+
+<select name="status">
+
+
+<option value="Open"
+{% if job[12]=='Open' %}selected{% endif %}>
+Open
+</option>
+
+
+<option value="Closed"
+{% if job[12]=='Closed' %}selected{% endif %}>
+Closed
+</option>
+
+
+</select>
+
+
+</div>
+
+
+
+</div>
+
+
+
+
+
+
+
+
+<div class="buttons">
+
+
+<button type="submit" class="btn save">
+
+Update Job
+
+</button>
+
+
+
+<a href="/admin/jobs" class="btn back">
+
+Cancel
+
+</a>
+
+
+</div>
+
+
+
+
+</form>
+
+
+
+
+</div>
+
+
+
+{% else %}
+
+
+
+<div class="card">
+
+<h2>
+
+Job not found
+
+</h2>
+
+
+<a href="/admin/jobs" class="btn back">
+
+Back
+
+</a>
+
+
+</div>
+
+
+
+{% endif %}
+
+
+
+
+</div>
+
+
+
+</body>
+
+
+</html>

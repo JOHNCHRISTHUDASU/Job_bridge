@@ -1,0 +1,289 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Applications - JobBridge Admin</title>
+
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Arial;
+}
+
+
+body{
+
+background:#f4f6f9;
+
+}
+
+
+
+.main{
+
+width:90%;
+
+margin:40px auto;
+
+}
+
+
+
+h1{
+
+margin-bottom:25px;
+
+color:#1f2937;
+
+}
+
+
+
+.card{
+
+background:white;
+
+padding:25px;
+
+border-radius:15px;
+
+box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+
+table{
+
+width:100%;
+
+border-collapse:collapse;
+
+}
+
+
+
+th{
+
+background:#2563eb;
+
+color:white;
+
+padding:14px;
+
+}
+
+
+
+td{
+
+padding:12px;
+
+border-bottom:1px solid #ddd;
+
+}
+
+
+
+.status{
+
+padding:6px 12px;
+
+border-radius:20px;
+
+font-weight:bold;
+
+background:#fef3c7;
+
+}
+
+
+
+.btn{
+
+padding:8px 15px;
+
+background:#2563eb;
+
+color:white;
+
+text-decoration:none;
+
+border-radius:6px;
+
+}
+
+
+
+.btn:hover{
+
+background:#1d4ed8;
+
+}
+
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="main">
+
+
+<h1>
+Applications Review
+</h1>
+
+
+<div class="card">
+
+
+<table>
+
+
+<thead>
+
+
+<tr>
+
+<th>ID</th>
+
+<th>Job</th>
+
+<th>Applicant</th>
+
+<th>Email</th>
+
+<th>Status</th>
+
+<th>Interview Date</th>
+
+<th>Mode</th>
+
+<th>Action</th>
+
+</tr>
+
+
+</thead>
+
+
+
+<tbody>
+
+
+
+{% if applications %}
+
+
+{% for app in applications %}
+
+
+<tr>
+
+
+<td>
+{{ app[0] }}
+</td>
+
+
+<td>
+{{ app[1] }}
+</td>
+
+
+<td>
+{{ app[2] }}
+</td>
+
+
+<td>
+{{ app[3] }}
+</td>
+
+
+<td>
+
+<span class="status">
+
+{{ app[4] }}
+
+</span>
+
+</td>
+
+
+<td>
+{{ app[5] }}
+</td>
+
+
+<td>
+{{ app[6] }}
+</td>
+
+
+
+<td>
+
+<a class="btn"
+href="/admin/view_application/{{ app[0] }}">
+
+View
+
+</a>
+
+
+</td>
+
+
+</tr>
+
+
+{% endfor %}
+
+
+
+{% else %}
+
+
+<tr>
+
+<td colspan="8">
+
+No Applications Found
+
+</td>
+
+</tr>
+
+
+{% endif %}
+
+
+
+</tbody>
+
+
+</table>
+
+
+</div>
+
+
+</div>
+
+
+</body>
+
+</html>

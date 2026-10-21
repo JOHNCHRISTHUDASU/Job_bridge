@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Post Job - Job_Bridge</title>
+
+<style>
+
+body{
+    font-family:Poppins,sans-serif;
+    background:#f4f8ff;
+    padding:40px;
+}
+
+
+.form-container{
+
+    max-width:700px;
+    margin:auto;
+    background:white;
+    padding:40px;
+    border-radius:20px;
+    box-shadow:0 10px 25px #ddd;
+
+}
+
+
+h1{
+
+color:#0d6efd;
+text-align:center;
+
+}
+
+
+input,textarea,select{
+
+width:100%;
+padding:15px;
+margin:10px 0;
+border:1px solid #ddd;
+border-radius:10px;
+font-size:16px;
+
+}
+
+
+button{
+
+width:100%;
+padding:15px;
+background:#0d6efd;
+color:white;
+border:none;
+border-radius:10px;
+font-size:18px;
+cursor:pointer;
+
+}
+
+
+button:hover{
+
+background:#084298;
+
+}
+
+</style>
+
+
+</head>
+
+
+<body>
+
+
+<div class="form-container">
+
+
+<h1>
+Post New Job
+</h1>
+
+
+<form method="POST">
+
+
+<input 
+type="text"
+name="title"
+placeholder="Job Title"
+required>
+
+
+<input 
+type="text"
+name="category"
+placeholder="Category"
+required>
+
+
+<input 
+type="text"
+name="location"
+placeholder="Location"
+required>
+
+
+<input 
+type="text"
+name="salary"
+placeholder="Salary">
+
+
+<input 
+type="text"
+name="experience"
+placeholder="Experience">
+
+
+<select name="job_type">
+
+<option>
+Full Time
+</option>
+
+<option>
+Part Time
+</option>
+
+<option>
+Internship
+</option>
+
+</select>
+
+
+<input
+type="number"
+name="vacancies"
+placeholder="Number of Vacancies">
+
+
+<input
+type="text"
+name="skills"
+placeholder="Required Skills">
+
+
+<textarea
+name="description"
+placeholder="Job Description"
+rows="5"></textarea>
+
+
+<input
+type="date"
+name="deadline">
+
+
+<button type="submit">
+
+Post Job
+
+</button>
+
+
+</form>
+
+
+</div>
+
+
+</body>
+
+</html>

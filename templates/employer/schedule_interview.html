@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Schedule Interview</title>
+    <style>
+        body{
+            font-family:Arial;
+            background:#f4f6f9;
+        }
+
+        .container{
+            width:500px;
+            margin:40px auto;
+            background:#fff;
+            padding:30px;
+            border-radius:10px;
+            box-shadow:0 0 10px #ccc;
+        }
+
+        input,
+        select{
+            width:100%;
+            padding:10px;
+            margin:10px 0;
+        }
+
+        button{
+            width:100%;
+            padding:12px;
+            background:#28a745;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+
+        button:hover{
+            background:#218838;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h2>Schedule Interview</h2>
+
+<form method="POST">
+
+<label>Date & Time</label>
+
+<input
+type="datetime-local"
+name="interview_date"
+required>
+
+<label>Interview Mode</label>
+
+<select name="interview_mode">
+
+<option>Online</option>
+
+<option>Offline</option>
+
+</select>
+
+<label>Meeting Link / Address</label>
+
+<input
+type="text"
+name="interview_location"
+placeholder="Google Meet Link or Office Address"
+required>
+
+<button type="submit">
+
+Schedule Interview
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

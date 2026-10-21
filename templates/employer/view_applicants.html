@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>View Applicants | Job_Bridge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#eef3fb;
+padding:40px;
+}
+
+.container{
+max-width:1200px;
+margin:auto;
+}
+
+h1{
+color:#0d6efd;
+margin-bottom:30px;
+text-align:center;
+}
+
+.card{
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+margin-bottom:25px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+gap:30px;
+flex-wrap:wrap;
+}
+
+.left{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.left img{
+width:90px;
+height:90px;
+border-radius:50%;
+object-fit:cover;
+border:3px solid #0d6efd;
+}
+
+.details h3{
+color:#0d6efd;
+margin-bottom:8px;
+}
+
+.details p{
+margin:5px 0;
+color:#555;
+font-size:15px;
+}
+
+.actions{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+align-items:center;
+}
+
+.btn{
+padding:10px 18px;
+border-radius:10px;
+text-decoration:none;
+color:white;
+font-size:14px;
+transition:.3s;
+}
+
+.btn:hover{
+opacity:.9;
+transform:translateY(-2px);
+}
+
+.resume{
+background:#198754;
+}
+
+.accept{
+background:#0d6efd;
+}
+
+.reject{
+background:#dc3545;
+}
+
+.message{
+background:#17a2b8;
+}
+
+.schedule{
+background:#6610f2;
+}
+
+.pending{
+background:orange;
+padding:6px 14px;
+border-radius:20px;
+color:white;
+}
+
+.accepted{
+background:#198754;
+padding:6px 14px;
+border-radius:20px;
+color:white;
+}
+
+.shortlisted{
+background:#0d6efd;
+padding:6px 14px;
+border-radius:20px;
+color:white;
+}
+
+.rejected{
+background:#dc3545;
+padding:6px 14px;
+border-radius:20px;
+color:white;
+}
+
+.back{
+display:inline-block;
+margin-top:30px;
+background:#6c757d;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+text-decoration:none;
+}
+
+.empty{
+text-align:center;
+background:white;
+padding:50px;
+border-radius:20px;
+box-shadow:0 10px 20px rgba(0,0,0,.08);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+<i class="fa-solid fa-users"></i>
+View Applicants
+</h1>
+
+{% if applicants %}
+
+{% for app in applicants %}
+
+<div class="card">
+
+<div class="left">
+
+<img src="/static/images/default.png">
+
+<div class="details">
+
+<h3>{{ app[2] }}</h3>
+
+<p><b>Job:</b> {{ app[5] }}</p>
+
+<p><b>Email:</b> {{ app[3] }}</p>
+
+<p><b>Phone:</b> {{ app[4] }}</p>
+
+<p><b>Applied:</b> {{ app[7] }}</p>
+
+{% if app[6] == "Pending" %}
+
+<span class="pending">
+Pending
+</span>
+
+{% elif app[6] == "Accepted" %}
+
+<span class="accepted">
+Accepted
+</span>
+
+{% elif app[6] == "Shortlisted" %}
+
+<span class="shortlisted">
+Interview Scheduled
+</span>
+
+{% elif app[6] == "Rejected" %}
+
+<span class="rejected">
+Rejected
+</span>
+
+{% endif %}
+
+</div>
+
+</div>
+
+<div class="actions">
+
+{% if app[8] %}
+<a
+class="btn resume"
+href="/static/resumes/{{ app[8] }}"
+target="_blank">
+📄 Resume
+</a>
+{% endif %}
+
+<a
+class="btn message"
+href="{{ url_for('start_chat', user_id=app[1]) }}">
+💬 Message
+</a>
+
+{% if app[6] == "Pending" %}
+
+<a
+class="btn accept"
+href="/accept_application/{{ app[0] }}">
+✅ Accept
+</a>
+
+<a
+class="btn reject"
+href="/reject_application/{{ app[0] }}">
+❌ Reject
+</a>
+
+{% elif app[6] == "Accepted" %}
+
+<a
+class="btn schedule"
+href="/schedule_interview/{{ app[0] }}">
+📅 Schedule Interview
+</a>
+
+{% elif app[6] == "Shortlisted" %}
+
+<span class="shortlisted">
+📅 Interview Scheduled
+</span>
+
+{% elif app[6] == "Rejected" %}
+
+<span class="rejected">
+❌ Rejected
+</span>
+
+{% endif %}
+
+</div>
+
+</div>
+
+{% endfor %}
+
+{% else %}
+
+<div class="empty">
+
+<h2>No Applicants Yet</h2>
+
+<p>No one has applied for your jobs.</p>
+
+</div>
+
+{% endif %}
+
+<a
+class="back"
+href="/employer/dashboard">
+← Back to Dashboard
+</a>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Send Message</title>
+
+<style>
+
+body{
+    background:#f4f6f9;
+    font-family:Arial, sans-serif;
+}
+
+.main{
+    width:60%;
+    margin:50px auto;
+}
+
+.card{
+    background:white;
+    padding:30px;
+    border-radius:15px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.15);
+}
+
+h2{
+    margin-bottom:10px;
+}
+
+.info{
+    margin-bottom:20px;
+    color:#555;
+}
+
+textarea{
+    width:100%;
+    height:160px;
+    padding:15px;
+    border:1px solid #ccc;
+    border-radius:8px;
+    resize:vertical;
+    font-size:15px;
+}
+
+button{
+    margin-top:20px;
+    padding:12px 24px;
+    background:#2563eb;
+    color:white;
+    border:none;
+    border-radius:8px;
+    cursor:pointer;
+    font-size:15px;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+.back{
+    display:inline-block;
+    margin-top:20px;
+    text-decoration:none;
+    color:#2563eb;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="main">
+
+<div class="card">
+
+<h2>Send Message</h2>
+
+<p class="info"><strong>Receiver ID:</strong> {{ user[0] }}</p>
+
+<p class="info"><strong>Name:</strong> {{ user[1] }}</p>
+
+<p class="info"><strong>Email:</strong> {{ user[2] }}</p>
+
+<p class="info"><strong>Role:</strong> {{ user[3] }}</p>
+
+<form method="POST">
+
+<textarea
+name="message"
+placeholder="Type your message..."
+required></textarea>
+
+<button type="submit">
+Send Message
+</button>
+
+</form>
+
+<a href="/admin/manage_users" class="back">
+← Back to Manage Users
+</a>
+
+</div>
+
+</div>
+
+</body>
+
+</html>

@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Admin Settings</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:"Segoe UI",Arial,sans-serif;
+}
+
+body{
+    background:#f1f5f9;
+}
+
+/* Container */
+
+.settings-container{
+
+    width:650px;
+    margin:40px auto;
+    background:#fff;
+
+    border-radius:15px;
+
+    padding:35px;
+
+    box-shadow:0 10px 25px rgba(0,0,0,.1);
+
+}
+
+/* Heading */
+
+.settings-container h2{
+
+    text-align:center;
+    color:#1e293b;
+
+    margin-bottom:30px;
+
+}
+
+/* Flash */
+
+.alert{
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    padding:12px;
+
+    border-radius:8px;
+
+    margin-bottom:20px;
+
+}
+
+/* Section */
+
+.section{
+
+    margin-bottom:30px;
+
+}
+
+.section h3{
+
+    color:#2563eb;
+
+    margin-bottom:15px;
+
+}
+
+/* Profile */
+
+.profile{
+
+    text-align:center;
+
+}
+
+.profile img{
+
+    width:140px;
+
+    height:140px;
+
+    border-radius:50%;
+
+    object-fit:cover;
+
+    border:4px solid #2563eb;
+
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+
+}
+
+/* File */
+
+input[type=file]{
+
+    width:100%;
+
+    margin-top:20px;
+
+}
+
+/* Labels */
+
+label{
+
+    display:block;
+
+    margin-top:18px;
+
+    margin-bottom:8px;
+
+    font-weight:600;
+
+    color:#334155;
+
+}
+
+/* Inputs */
+
+input[type=text]{
+
+    width:100%;
+
+    padding:12px;
+
+    border:1px solid #cbd5e1;
+
+    border-radius:8px;
+
+    font-size:15px;
+
+}
+
+input[type=text]:focus{
+
+    outline:none;
+
+    border-color:#2563eb;
+
+}
+
+/* Button */
+
+button{
+
+    width:100%;
+
+    padding:14px;
+
+    margin-top:30px;
+
+    background:#2563eb;
+
+    color:#fff;
+
+    border:none;
+
+    border-radius:8px;
+
+    font-size:16px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+}
+
+button:hover{
+
+    background:#1d4ed8;
+
+}
+
+@media(max-width:700px){
+
+.settings-container{
+
+    width:95%;
+
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="settings-container">
+
+<h2>⚙ Admin Settings</h2>
+
+{% with messages = get_flashed_messages(with_categories=true) %}
+{% if messages %}
+{% for category,message in messages %}
+
+<div class="alert">
+{{ message }}
+</div>
+
+{% endfor %}
+{% endif %}
+{% endwith %}
+
+<form method="POST" enctype="multipart/form-data">
+
+<!-- PROFILE -->
+
+<div class="section">
+
+<h3>👤 Profile Picture</h3>
+
+<div class="profile">
+
+{% if admin and admin[7] %}
+
+<img src="{{ url_for('static', filename='uploads/' + admin[7]) }}">
+
+{% else %}
+
+<img src="{{ url_for('static', filename='images/default.png') }}">
+
+{% endif %}
+
+</div>
+
+<input
+type="file"
+name="profile_image"
+accept=".jpg,.jpeg,.png,.webp">
+
+</div>
+
+<!-- PERSONAL -->
+
+<div class="section">
+
+<h3>👤 Personal Information</h3>
+
+<label>Full Name</label>
+
+<input
+type="text"
+name="name"
+value="{{ admin[1] if admin else '' }}">
+
+<label>Phone Number</label>
+
+<input
+type="text"
+name="phone"
+value="{{ admin[5] if admin and admin[5] else '' }}">
+
+<label>Location</label>
+
+<input
+type="text"
+name="location"
+value="{{ admin[6] if admin and admin[6] else '' }}">
+
+</div>
+
+<button type="submit">
+
+💾 Save Changes
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>

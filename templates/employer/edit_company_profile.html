@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Edit Company Profile | JobBridge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
+}
+
+body{
+    background:#eef3fb;
+}
+
+.container{
+    width:750px;
+    max-width:95%;
+    margin:40px auto;
+    background:#fff;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 12px 30px rgba(0,0,0,.08);
+}
+
+h1{
+    text-align:center;
+    color:#0d6efd;
+    margin-bottom:30px;
+}
+
+.logo-section{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.logo-section img{
+    width:140px;
+    height:140px;
+    border-radius:50%;
+    object-fit:cover;
+    border:5px solid #0d6efd;
+    box-shadow:0 5px 15px rgba(0,0,0,.15);
+}
+
+.logo-section input{
+    margin-top:15px;
+}
+
+label{
+    display:block;
+    margin-top:18px;
+    margin-bottom:8px;
+    font-weight:600;
+    color:#333;
+}
+
+input[type=text],
+textarea{
+    width:100%;
+    padding:13px;
+    border:1px solid #d0d7e2;
+    border-radius:10px;
+    font-size:15px;
+    transition:.3s;
+}
+
+input[type=text]:focus,
+textarea:focus{
+    border-color:#0d6efd;
+    outline:none;
+    box-shadow:0 0 8px rgba(13,110,253,.2);
+}
+
+textarea{
+    height:140px;
+    resize:none;
+}
+
+input[type=file]{
+    width:100%;
+    margin-top:10px;
+}
+
+.buttons{
+    margin-top:30px;
+    display:flex;
+    gap:15px;
+}
+
+button{
+    flex:1;
+    background:#0d6efd;
+    color:#fff;
+    border:none;
+    padding:14px;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:16px;
+    font-weight:600;
+    transition:.3s;
+}
+
+button:hover{
+    background:#0b5ed7;
+}
+
+.back{
+    flex:1;
+    text-align:center;
+    text-decoration:none;
+    background:#6c757d;
+    color:#fff;
+    padding:14px;
+    border-radius:10px;
+    font-weight:600;
+    transition:.3s;
+}
+
+.back:hover{
+    background:#565e64;
+}
+
+@media(max-width:768px){
+
+.container{
+    padding:25px;
+}
+
+.buttons{
+    flex-direction:column;
+}
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>🏢 Edit Company Profile</h1>
+
+<form method="POST"
+      action="{{ url_for('edit_company_profile') }}"
+      enctype="multipart/form-data">
+
+<div class="logo-section">
+
+{% if company[5] %}
+
+<img
+src="{{ url_for('static', filename='uploads/' + company[5]) }}"
+id="preview">
+
+{% else %}
+
+<img
+src="{{ url_for('static', filename='images/default.png') }}"
+id="preview">
+
+{% endif %}
+
+<label>Company Logo</label>
+
+<input
+type="file"
+name="profile_image"
+accept=".jpg,.jpeg,.png,.webp"
+onchange="previewImage(event)">
+
+</div>
+
+<label>Employer Name</label>
+
+<input
+type="text"
+name="full_name"
+value="{{ company[0] or '' }}"
+required>
+
+<label>Company Name</label>
+
+<input
+type="text"
+name="company_name"
+value="{{ company[1] or '' }}"
+required>
+
+<label>Phone Number</label>
+
+<input
+type="text"
+name="phone"
+value="{{ company[2] or '' }}">
+
+<label>Location</label>
+
+<input
+type="text"
+name="location"
+value="{{ company[3] or '' }}">
+
+<label>About Company</label>
+
+<textarea
+name="bio"
+placeholder="Write about your company...">{{ company[4] or '' }}</textarea>
+
+<div class="buttons">
+
+<button type="submit">
+💾 Save Changes
+</button>
+
+<a
+class="back"
+href="{{ url_for('employer_profile') }}">
+← Back
+</a>
+
+</div>
+
+</form>
+
+</div>
+
+<script>
+
+function previewImage(event){
+
+const preview=document.getElementById("preview");
+
+preview.src=URL.createObjectURL(event.target.files[0]);
+
+}
+
+</script>
+
+</body>
+
+</html>

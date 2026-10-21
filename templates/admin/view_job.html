@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>View Job - JobBridge Admin</title>
+
+
+<style>
+
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:Arial, sans-serif;
+}
+
+
+body{
+
+    background:#f4f6f9;
+
+}
+
+
+
+/* MAIN */
+
+.main{
+
+    width:80%;
+    margin:40px auto;
+
+}
+
+
+
+/* HEADER */
+
+.main h1{
+
+    font-size:32px;
+
+    margin-bottom:25px;
+
+    color:#1f2937;
+
+}
+
+
+
+/* CARD */
+
+.card{
+
+    background:white;
+
+    padding:35px;
+
+    border-radius:15px;
+
+    box-shadow:0 5px 20px rgba(0,0,0,0.1);
+
+}
+
+
+
+/* JOB TITLE */
+
+.card h2{
+
+    color:#2563eb;
+
+    font-size:28px;
+
+    margin-bottom:25px;
+
+}
+
+
+
+/* DETAILS */
+
+.details{
+
+    margin-top:15px;
+
+}
+
+
+
+.details p{
+
+    font-size:17px;
+
+    margin:15px 0;
+
+    color:#374151;
+
+    line-height:1.6;
+
+}
+
+
+
+.details b{
+
+    display:inline-block;
+
+    width:160px;
+
+    color:#111827;
+
+}
+
+
+
+/* DESCRIPTION */
+
+.description{
+
+    background:#f8fafc;
+
+    padding:15px;
+
+    border-radius:10px;
+
+}
+
+
+
+/* STATUS */
+
+.status{
+
+    padding:6px 15px;
+
+    border-radius:20px;
+
+    background:#dcfce7;
+
+    color:#166534;
+
+    font-weight:bold;
+
+}
+
+
+
+/* BUTTON */
+
+.btn{
+
+    display:inline-block;
+
+    margin-top:25px;
+
+    padding:12px 25px;
+
+    background:#2563eb;
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:8px;
+
+}
+
+
+.btn:hover{
+
+    background:#1d4ed8;
+
+}
+
+
+
+/* RESPONSIVE */
+
+@media(max-width:768px){
+
+
+.main{
+
+    width:90%;
+
+}
+
+
+.details b{
+
+    display:block;
+
+    width:auto;
+
+    margin-bottom:5px;
+
+}
+
+
+}
+
+
+</style>
+
+
+</head>
+
+
+
+<body>
+
+
+<div class="main">
+
+
+<h1>
+<i class="fa-solid fa-briefcase"></i>
+Job Details
+</h1>
+
+
+
+{% if job %}
+
+
+<div class="card">
+
+
+<h2>
+{{ job[2] }}
+</h2>
+
+
+
+<div class="details">
+
+
+<p>
+<b>Category:</b>
+{{ job[3] }}
+</p>
+
+
+
+<p>
+<b>Location:</b>
+{{ job[4] }}
+</p>
+
+
+
+<p>
+<b>Salary:</b>
+{{ job[5] }}
+</p>
+
+
+
+<p>
+<b>Experience:</b>
+{{ job[6] }}
+</p>
+
+
+
+<p>
+<b>Job Type:</b>
+{{ job[7] }}
+</p>
+
+
+
+<p>
+<b>Vacancies:</b>
+{{ job[8] }}
+</p>
+
+
+
+<p>
+<b>Skills:</b>
+{{ job[9] }}
+</p>
+
+
+
+<p>
+<b>Description:</b>
+</p>
+
+
+<p class="description">
+{{ job[10] }}
+</p>
+
+
+
+<p>
+<b>Deadline:</b>
+{{ job[11] }}
+</p>
+
+
+
+<p>
+<b>Status:</b>
+
+<span class="status">
+
+{{ job[12] }}
+
+</span>
+
+</p>
+
+
+
+</div>
+
+
+
+
+<a href="/admin/jobs" class="btn">
+
+← Back to Jobs
+
+</a>
+
+
+
+
+</div>
+
+
+{% else %}
+
+
+<div class="card">
+
+<h2>
+Job not found
+</h2>
+
+<a href="/admin/jobs" class="btn">
+
+Back
+
+</a>
+
+
+</div>
+
+
+{% endif %}
+
+
+
+</div>
+
+
+</body>
+
+</html>

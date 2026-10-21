@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employer Analytics</title>
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:Poppins,sans-serif;
+}
+
+body{
+background:#eef3fb;
+}
+
+.container{
+width:90%;
+max-width:1200px;
+margin:40px auto;
+}
+
+h1{
+text-align:center;
+color:#0d6efd;
+margin-bottom:35px;
+}
+
+.cards{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+gap:25px;
+}
+
+.card{
+background:white;
+padding:30px;
+border-radius:20px;
+box-shadow:0 10px 25px rgba(0,0,0,.08);
+text-align:center;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-8px);
+}
+
+.card i{
+font-size:45px;
+color:#0d6efd;
+margin-bottom:15px;
+}
+
+.card h2{
+font-size:42px;
+margin-bottom:10px;
+}
+
+.card p{
+font-size:18px;
+color:#666;
+}
+
+.back{
+display:inline-block;
+margin-top:40px;
+padding:12px 25px;
+background:#0d6efd;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
+
+.back:hover{
+background:#084298;
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>
+<i class="fa-solid fa-chart-line"></i>
+Employer Analytics
+</h1>
+
+<div class="cards">
+
+<div class="card">
+<i class="fa-solid fa-briefcase"></i>
+<h2>{{ total_jobs }}</h2>
+<p>Total Jobs</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-users"></i>
+<h2>{{ total_applications }}</h2>
+<p>Total Applications</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-clock"></i>
+<h2>{{ pending }}</h2>
+<p>Pending</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-circle-check"></i>
+<h2>{{ accepted }}</h2>
+<p>Accepted</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-calendar-check"></i>
+<h2>{{ interviews }}</h2>
+<p>Interview Scheduled</p>
+</div>
+
+<div class="card">
+<i class="fa-solid fa-circle-xmark"></i>
+<h2>{{ rejected }}</h2>
+<p>Rejected</p>
+</div>
+
+</div>
+
+<a href="{{ url_for('employer_dashboard') }}" class="back">
+← Back to Dashboard
+</a>
+
+</div>
+
+</body>
+</html>

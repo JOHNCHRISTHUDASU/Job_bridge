@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Employer Profile | JobBridge</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+<style>
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:#eef3fb;
+padding:40px;
+}
+
+.container{
+max-width:900px;
+margin:auto;
+background:#fff;
+padding:35px;
+border-radius:20px;
+box-shadow:0 10px 30px rgba(0,0,0,.08);
+}
+
+.profile-header{
+text-align:center;
+margin-bottom:35px;
+}
+
+.profile-header img{
+width:140px;
+height:140px;
+border-radius:50%;
+object-fit:cover;
+border:5px solid #0d6efd;
+margin-bottom:15px;
+}
+
+.profile-header h1{
+color:#0d6efd;
+margin-bottom:5px;
+}
+
+.profile-header h3{
+color:#555;
+font-weight:500;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px;
+margin-top:25px;
+}
+
+.box{
+background:#f8f9ff;
+padding:18px;
+border-radius:12px;
+border-left:5px solid #0d6efd;
+}
+
+.box h4{
+color:#0d6efd;
+margin-bottom:8px;
+font-size:15px;
+}
+
+.box p{
+color:#444;
+font-size:15px;
+word-break:break-word;
+}
+
+.about{
+margin-top:25px;
+background:#f8f9ff;
+padding:20px;
+border-radius:12px;
+border-left:5px solid #0d6efd;
+}
+
+.about h3{
+color:#0d6efd;
+margin-bottom:10px;
+}
+
+.buttons{
+margin-top:35px;
+display:flex;
+justify-content:center;
+gap:15px;
+flex-wrap:wrap;
+}
+
+.edit-btn{
+display:inline-block;
+padding:12px 24px;
+background:#0d6efd;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:600;
+transition:.3s;
+}
+
+.edit-btn:hover{
+background:#0b5ed7;
+transform:translateY(-2px);
+}
+
+.back-btn{
+display:inline-block;
+padding:12px 24px;
+background:#6c757d;
+color:white;
+text-decoration:none;
+border-radius:10px;
+font-weight:600;
+transition:.3s;
+}
+
+.back-btn:hover{
+background:#5c636a;
+transform:translateY(-2px);
+}
+
+</style>
+
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="profile-header">
+
+{% if user[15] and user[15] != "default.png" %}
+
+<img src="{{ url_for('static', filename='uploads/' + user[15]) }}">
+
+{% else %}
+
+<img src="{{ url_for('static', filename='images/default.png') }}">
+
+{% endif %}
+
+<h1>{{ user[2] }}</h1>
+
+<h3>{{ user[1] }}</h3>
+
+</div>
+
+<div class="grid">
+
+<div class="box">
+<h4><i class="fa-solid fa-envelope"></i> Email</h4>
+<p>{{ user[3] }}</p>
+</div>
+
+<div class="box">
+<h4><i class="fa-solid fa-phone"></i> Phone</h4>
+<p>{{ user[4] }}</p>
+</div>
+
+<div class="box">
+<h4><i class="fa-solid fa-location-dot"></i> Location</h4>
+<p>{{ user[7] }}</p>
+</div>
+
+<div class="box">
+<h4><i class="fa-solid fa-user-tie"></i> Role</h4>
+<p>{{ user[6] }}</p>
+</div>
+
+</div>
+
+<div class="about">
+
+<h3><i class="fa-solid fa-building"></i> About Company</h3>
+
+<p>{{ user[14] }}</p>
+
+</div>
+
+<div class="buttons">
+
+<a href="/edit_company_profile" class="edit-btn">
+<i class="fa-solid fa-user-pen"></i>
+Edit Company Profile
+</a>
+
+<a href="/employer/dashboard" class="back-btn">
+<i class="fa-solid fa-arrow-left"></i>
+Back to Dashboard
+</a>
+
+</div>
+
+</div>
+
+</body>
+</html>

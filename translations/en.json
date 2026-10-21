@@ -1,0 +1,137 @@
+{
+    "dashboard": "Dashboard",
+    "notifications": "Notifications",
+    "logout": "Logout",
+    "listen": "Listen",
+
+    "welcome": "Welcome",
+    "welcome_desc": "Find the right opportunities, apply for jobs, and build your career with JobBridge.",
+
+    "find_job": "Find Your Dream Job",
+    "search_desc": "Search jobs by title, skill, company, or location.",
+    "search_placeholder": "Search jobs, skills, location...",
+    "search_button": "Search",
+
+    "popular_jobs": "Popular Job Categories",
+
+    "carpenter": "Carpenter",
+    "electrician": "Electrician",
+    "plumber": "Plumber",
+    "driver": "Driver",
+    "mason": "Mason",
+    "painter": "Painter",
+    "housekeeping": "Housekeeping",
+    "delivery": "Delivery",
+    "nurse": "Nurse",
+    "teacher": "Teacher",
+    "computer": "Computer Jobs",
+    "security": "Security Guard",
+
+    "search_jobs": "Search Jobs",
+    "search_jobs_desc": "Find jobs based on your skills and location.",
+    "find_jobs": "Find Jobs",
+
+    "my_applications": "My Applications",
+    "applications_desc": "Track the status of all your job applications.",
+    "applications_button": "View Applications",
+
+    "saved_jobs": "Saved Jobs",
+    "saved_jobs_desc": "View your saved job opportunities anytime.",
+    "saved_jobs_button": "Saved Jobs",
+
+    "my_profile": "My Profile",
+    "profile_desc": "Update your personal details, skills, and resume.",
+    "profile_button": "My Profile",
+
+    "messages": "Messages",
+    "messages_desc": "Chat directly with employers.",
+    "messages_button": "Open Messages",
+
+    "my_interviews": "My Interviews",
+    "interviews_desc": "View your upcoming interview schedule.",
+    "view_details": "View Details",
+
+    "analytics": "Analytics",
+    "analytics_desc": "Track your job search progress and application statistics.",
+    "view_analytics": "View Analytics",
+
+
+
+    "total_applications":"Jobs Applied",
+    "pending":"Waiting for Response",
+"accepted":"Selected",
+"interviews_scheduled":"Interviews",
+"rejected":"Not Selected",
+"apply_job":"Apply For Job",
+"category":"Category",
+"location":"Location",
+"salary":"Salary",
+"experience":"Experience",
+"job_type":"Job Type",
+"vacancies":"Vacancies",
+"skills":"Skills",
+"description":"Description",
+"deadline":"Deadline",
+"status":"Status",
+"submit_application":"Submit Application",
+"back_jobs":"← Back to Available Jobs",
+"chat_title":"JobBridge Chat",
+"conversation_with":"Conversation with",
+"no_messages":"No messages yet.",
+"type_message":"Type your message...",
+"send":"Send",
+"edit_profile":"Edit Profile",
+"phone_number":"Phone Number",
+"qualification":"Qualification",
+"about_yourself":"About Yourself",
+"save_profile":"Save Profile",
+"back_profile":"← Back to Profile",
+"skills_placeholder":"Python, Flask, MySQL",
+"experience_placeholder":"Fresher / 1 Year",
+"bio_placeholder":"Write something about yourself...",
+"available_jobs":"Available Jobs",
+"apply_now":"Apply Now",
+"save_job":"Save Job",
+"no_jobs":"No Jobs Available",
+"no_jobs_desc":"Currently there are no job openings. Please check again later.",
+"messages_page":"Messages",
+"messages_page_desc":"Communicate with employers regarding your job applications.",
+"open_chat":"Open Chat →",
+"no_messages_yet":"No Messages Yet",
+"no_messages_desc":"You haven't received any messages from employers.",
+
+"applied_date":"Applied Date",
+"no_applications":"No Applications Yet",
+"no_applications_desc":"Apply for jobs to see them here.",
+
+"date":"Date",
+"mode":"Mode",
+"meeting_link":"Meeting Link / Address",
+"no_interviews":"No Interviews Scheduled",
+
+"remove_photo":"Remove Photo",
+"update_profile":"Update Profile",
+"profile_picture":"Profile Picture",
+"save_changes":"Save Changes",
+"personal_details":"Personal Details",
+"phone":"Phone",
+
+"view":"View",
+"download":"Download",
+"delete":"Delete",
+"no_resume":"No resume uploaded yet.",
+
+"about":"About",
+"add_phone":"Add Phone",
+"add_qualification":"Add Qualification",
+"add_skills":"Add your skills from Edit Profile",
+"fresher":"Fresher",
+"add_location":"Add your location",
+
+
+
+"remove_saved_job":"Remove Saved Job",
+"no_saved_jobs":"No Saved Jobs"
+
+    
+}

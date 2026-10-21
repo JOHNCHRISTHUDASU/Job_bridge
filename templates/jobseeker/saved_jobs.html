@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+<title>Saved Jobs - Job_Bridge</title>
+
+
+<style>
+
+body{
+
+font-family:Poppins,sans-serif;
+background:#f4f8ff;
+padding:40px;
+
+}
+
+
+h1{
+
+text-align:center;
+color:#0d6efd;
+
+}
+
+
+.jobs{
+
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+gap:25px;
+margin-top:40px;
+
+}
+
+
+.card{
+
+background:white;
+padding:25px;
+border-radius:20px;
+box-shadow:0 10px 25px #ddd;
+
+}
+
+
+.card h2{
+
+color:#0d6efd;
+
+}
+
+
+.card p{
+
+margin:10px 0;
+
+}
+
+
+.apply{
+
+display:inline-block;
+background:#0d6efd;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+text-decoration:none;
+
+}
+
+
+.remove{
+
+display:inline-block;
+margin-left:10px;
+background:#dc3545;
+color:white;
+padding:12px 25px;
+border-radius:10px;
+text-decoration:none;
+
+}
+
+
+.remove:hover{
+
+background:#bb2d3b;
+
+}
+
+
+.dashboard-btn{
+
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+
+    margin-top:35px;
+
+    padding:14px 35px;
+
+    background:linear-gradient(135deg,#198754,#20c997);
+
+    color:white;
+
+    text-decoration:none;
+
+    border-radius:50px;
+
+    font-size:16px;
+
+    font-weight:600;
+
+    box-shadow:0 8px 20px rgba(25,135,84,0.3);
+
+    transition:0.3s;
+
+}
+
+
+.dashboard-btn:hover{
+
+    background:linear-gradient(135deg,#146c43,#198754);
+
+    transform:translateY(-5px);
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<div style="width:90%;margin:20px auto;text-align:right;">
+
+<select id="languageSelector">
+
+<option value="en">🌐 English</option>
+<option value="te">🌐 తెలుగు</option>
+<option value="hi">🌐 हिन्दी</option>
+
+</select>
+
+</div>
+
+
+
+<h1>
+
+⭐ <span data-lang="saved_jobs">
+Saved Jobs
+</span>
+
+</h1>
+
+
+
+
+<div class="jobs">
+
+
+
+{% if jobs %}
+
+
+
+{% for job in jobs %}
+
+
+
+<div class="card">
+
+
+
+<h2>
+{{job[2]}}
+</h2>
+
+
+
+
+<p>
+
+<b data-lang="category">
+Category
+</b> :
+
+{{job[3]}}
+
+</p>
+
+
+
+
+<p>
+
+<b data-lang="location">
+Location
+</b> :
+
+{{job[4]}}
+
+</p>
+
+
+
+
+<p>
+
+<b data-lang="salary">
+Salary
+</b> :
+
+{{job[5]}}
+
+</p>
+
+
+
+
+<p>
+
+<b data-lang="skills">
+Skills
+</b> :
+
+{{job[9]}}
+
+</p>
+
+
+
+
+<a class="apply" href="/apply/{{job[0]}}">
+
+<span data-lang="apply_now">
+Apply Now
+</span>
+
+</a>
+
+
+
+
+<a class="remove" href="/remove_saved_job/{{job[0]}}">
+
+<span data-lang="remove_saved_job">
+Remove Saved Job
+</span>
+
+</a>
+
+
+
+</div>
+
+
+
+{% endfor %}
+
+
+
+{% else %}
+
+
+
+<h2 data-lang="no_saved_jobs">
+
+No Saved Jobs
+
+</h2>
+
+
+
+{% endif %}
+
+
+
+</div>
+
+
+
+
+<a class="dashboard-btn" href="/jobseeker/dashboard">
+
+
+← <span data-lang="back_dashboard">
+Back to Dashboard
+</span>
+
+
+</a>
+
+
+
+<script src="{{ url_for('static', filename='js/modules/language.js') }}"></script>
+
+
+</body>
+
+</html>
